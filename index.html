@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deivyd Garcez — Infraestrutura de TI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --primary: #1a2744;
+    --accent: #3560a0;
+    --accent2: #4a7fd4;
+    --bg: #f4f6fb;
+    --card: #ffffff;
+    --text: #1e1e2e;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --tag-bg: #e8eef7;
+    --tag-text: #1a2744;
+    --nav-bg: rgba(26,39,68,.96);
+  }
+
+  [data-theme="dark"] {
+    --bg: #0f1117;
+    --card: #1a1f2e;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: #2a3347;
+    --tag-bg: #1e2a44;
+    --tag-text: #93b4e4;
+    --nav-bg: rgba(10,14,28,.97);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.65;
+    transition: background .3s, color .3s;
+  }
+
+  /* SCROLL PROGRESS */
+  #progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent2), #7eb3f5);
+    z-index: 200;
+    transition: width .1s;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 100;
+    padding: 0 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.06), 0 4px 24px rgba(0,0,0,.3);
+  }
+
+  .nav-brand { color: #fff; font-weight: 800; font-size: 15px; letter-spacing: -.2px; }
+
+  .nav-right { display: flex; align-items: center; gap: 32px; }
+
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+
+  .nav-links a {
+    color: #8fa8d4;
+    text-decoration: none;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    transition: color .2s;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: #fff; border-bottom-color: var(--accent2); }
+
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+  .btn-cv {
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    transition: background .2s;
+  }
+
+  .btn-cv:hover { background: var(--accent2); }
+
+  .theme-toggle {
+    background: none;
+    border: 1px solid rgba(255,255,255,.2);
+    color: #8fa8d4;
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color .2s, border-color .2s;
+  }
+
+  .theme-toggle:hover { color: #fff; border-color: rgba(255,255,255,.5); }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(145deg, #090f1e 0%, #1a2744 50%, #1e3670 100%);
+    color: #fff;
+    padding: 122px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+
+  .hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(60px);
+  }
+
+  .hero-glow-1 {
+    top: -20%; right: 0%;
+    width: 500px; height: 500px;
+    background: rgba(53,96,160,.3);
+  }
+
+  .hero-glow-2 {
+    bottom: -30%; left: -5%;
+    width: 380px; height: 380px;
+    background: rgba(74,127,212,.15);
+  }
+
+  .hero-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(74,127,212,.2);
+    border: 1px solid rgba(74,127,212,.35);
+    color: #7eb3f5;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .badge-dot {
+    width: 6px; height: 6px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .6; transform: scale(1.3); }
+  }
+
+  .hero-name {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+  }
+
+  .hero-title {
+    font-size: 13px;
+    color: #8fa8d4;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-top: 12px;
+    font-weight: 500;
+  }
+
+  .hero-desc {
+    color: #a0b8d8;
+    margin-top: 20px;
+    max-width: 500px;
+    font-size: 14.5px;
+    line-height: 1.8;
+  }
+
+  .hero-cta { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--accent2);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background .2s, transform .2s;
+  }
+
+  .btn-primary:hover { background: #3a6bbf; transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: #a0b8d8;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid rgba(160,184,216,.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: border-color .2s, color .2s, transform .2s;
+  }
+
+  .btn-outline:hover { border-color: rgba(160,184,216,.7); color: #fff; transform: translateY(-1px); }
+
+  .hero-contacts { text-align: right; flex-shrink: 0; }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+    color: #a0b8d8;
+    font-size: 13px;
+    margin-bottom: 11px;
+  }
+
+  .contact-item a { color: #7eb3f5; text-decoration: none; transition: color .2s; }
+  .contact-item a:hover { color: #fff; }
+  .contact-item svg { opacity: .65; flex-shrink: 0; }
+
+  /* STATS */
+  .stats-bar {
+    background: var(--accent);
+    padding: 24px 60px;
+  }
+
+  .stats-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .stat { text-align: center; color: #fff; }
+
+  .stat-icon { margin-bottom: 4px; opacity: .7; }
+
+  .stat-num { font-size: 32px; font-weight: 800; line-height: 1; letter-spacing: -1px; }
+
+  .stat-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px; opacity: .75; margin-top: 5px; font-weight: 500; }
+
+  .stat-divider { width: 1px; height: 48px; background: rgba(255,255,255,.18); }
+
+  /* MAIN */
+  .main-grid {
+    display: grid;
+    grid-template-columns: 1fr 272px;
+    max-width: 920px;
+    margin: 0 auto;
+    background: var(--card);
+    box-shadow: 0 8px 60px rgba(0,0,0,.12);
+    transition: background .3s;
+  }
+
+  [data-theme="dark"] .main-grid { box-shadow: 0 8px 60px rgba(0,0,0,.4); }
+
+  .col-main { border-right: 1px solid var(--border); }
+
+  .col-side { background: var(--bg); transition: background .3s; }
+
+  section { padding: 48px 40px; }
+
+  .section-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    margin-bottom: 28px;
+    display: inline-block;
+  }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 2px; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10px; bottom: 0;
+    width: 2px;
+    background: var(--border);
+  }
+
+  .tl-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity .55s ease, transform .55s ease;
+  }
+
+  .tl-item.visible { opacity: 1; transform: none; }
+  .tl-item:nth-child(2) { transition-delay: .12s; }
+
+  .tl-dot {
+    position: absolute;
+    left: -5px; top: 6px;
+    width: 12px; height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent);
+    transition: background .3s, border-color .3s;
+  }
+
+  .tl-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 3px;
+  }
+
+  .tl-empresa { font-weight: 700; font-size: 14.5px; color: var(--text); }
+  .tl-periodo {
+    font-size: 11px; color: var(--muted); white-space: nowrap;
+    background: var(--tag-bg); padding: 2px 8px; border-radius: 4px; font-weight: 500;
+  }
+  .tl-cargo { font-size: 13px; color: var(--accent2); font-weight: 600; margin-bottom: 12px; }
+  .tl-item ul { padding-left: 0; list-style: none; }
+  .tl-item li {
+    margin-bottom: 7px;
+    color: var(--muted);
+    font-size: 13px;
+    padding-left: 16px;
+    position: relative;
+  }
+  .tl-item li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--accent2);
+    font-size: 11px;
+    top: 1px;
+  }
+
+  /* PROJECT CARDS */
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .project-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: default;
+    transition: transform .25s, box-shadow .25s, border-color .25s, background .3s;
+    opacity: 0;
+    transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity .25s;
+  }
+
+  .project-card:hover::before { opacity: 1; }
+
+  .project-card.visible { opacity: 1; transform: none; }
+
+  .project-card:nth-child(2) { transition-delay: .08s; }
+  .project-card:nth-child(3) { transition-delay: .16s; }
+  .project-card:nth-child(4) { transition-delay: .24s; }
+  .project-card:nth-child(5) { transition-delay: .32s; grid-column: 1 / -1; }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(53,96,160,.18);
+    border-color: var(--accent2);
+  }
+
+  [data-theme="dark"] .project-card:hover {
+    box-shadow: 0 12px 32px rgba(53,96,160,.35);
+  }
+
+  .project-card-name { font-weight: 700; color: var(--text); font-size: 13px; margin-bottom: 5px; }
+
+  .project-card-tech { font-size: 10.5px; color: var(--accent2); font-weight: 600; margin-bottom: 10px; letter-spacing: .3px; }
+
+  .project-card p { color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+
+  /* SKILLS */
+  .skill-group { margin-bottom: 22px; }
+
+  .skill-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 9px;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+  .tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: default;
+    transition: background .2s, color .2s, transform .15s;
+    border: 1px solid transparent;
+  }
+
+  .tag:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  /* EDUCATION */
+  .edu-item { margin-bottom: 16px; padding-left: 12px; border-left: 2px solid var(--border); transition: border-color .2s; }
+  .edu-item:hover { border-left-color: var(--accent2); }
+  .edu-curso { font-weight: 600; font-size: 12.5px; color: var(--text); }
+  .edu-inst { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: none; }
+
+  /* PRINT BUTTON */
+  .fab {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 99;
+  }
+
+  .fab-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(53,96,160,.45);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background .2s, transform .2s, box-shadow .2s;
+    text-decoration: none;
+    letter-spacing: .2px;
+    font-family: inherit;
+  }
+
+  .fab-btn:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(26,39,68,.5);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--primary);
+    color: #8fa8d4;
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  footer a { color: var(--accent2); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 720px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 90px 24px 52px; }
+    .hero-name { font-size: 36px; }
+    .hero-inner { flex-direction: column; align-items: flex-start; }
+    .hero-contacts { text-align: left; }
+    .contact-item { justify-content: flex-start; }
+    .stats-bar { padding: 16px 24px; }
+    .stats-inner { gap: 8px; }
+    .stat-num { font-size: 24px; }
+    .main-grid { grid-template-columns: 1fr; }
+    .col-main { border-right: none; border-bottom: 1px solid var(--border); }
+    section { padding: 36px 24px; }
+    .project-grid { grid-template-columns: 1fr; }
+    .project-card:nth-child(5) { grid-column: auto; }
+    .fab { bottom: 16px; right: 16px; }
+  }
+
+  @media print {
+    #progress, nav, .fab, .stats-bar, .hero-cta, footer { display: none !important; }
+    body { background: #fff; font-size: 11.5px; }
+    .hero { padding: 40px 44px 28px; }
+    .hero-name { font-size: 30px; }
+    .hero-badge { display: none; }
+    .main-grid { box-shadow: none; }
+    section { padding: 22px 32px; }
+    .tl-item, .project-card, .fade-in { opacity: 1 !important; transform: none !important; }
+    .project-grid { grid-template-columns: 1fr 1fr; }
+    .project-card:hover { transform: none; box-shadow: none; }
+    .project-card::before { display: none; }
+    [data-theme="dark"] body { background: #fff; color: #1e1e2e; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Deivyd Garcez</span>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#competencias">Habilidades</a></li>
+      <li><a href="#formacao">Formação</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="cv.html" class="btn-cv">📄 Ver CV</a>
+      <button class="theme-toggle" id="themeBtn" title="Alternar tema">
+        <svg id="iconSun" width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="display:none">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+        </svg>
+        <svg id="iconMoon" width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Disponível para oportunidades
+      </div>
+      <h1 class="hero-name">Deivyd Garcez</h1>
+      <div class="hero-title">Líder de Infraestrutura de TI</div>
+      <p class="hero-desc">
+        Mais de uma década de experiência em servidores Windows, Linux e cloud AWS. Desde 2017 liderando infraestrutura de TI para redes varejistas com múltiplas filiais em produção — automação, monitoramento e operações sem fricção.
+      </p>
+      <div class="hero-cta">
+        <a href="cv.html" class="btn-primary">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Baixar CV Tradicional
+        </a>
+        <a href="https://github.com/deivydgarcez" target="_blank" class="btn-outline">
+          <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+    <div class="hero-contacts">
+      <div class="contact-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
+        (21) 9 9486-5377
+      </div>
+      <div class="contact-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <a href="mailto:garcezdeivyd@gmail.com">garcezdeivyd@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        <a href="https://github.com/deivydgarcez" target="_blank">github.com/deivydgarcez</a>
+      </div>
+      <div class="contact-item">
+        <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Rio de Janeiro — RJ
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-icon">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:.65">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+        </svg>
+      </div>
+      <div class="stat-num"><span class="count-up" data-target="9">0</span>+</div>
+      <div class="stat-label">anos de experiência</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-icon">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:.65">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+        </svg>
+      </div>
+      <div class="stat-num"><span class="count-up" data-target="20">0</span>+</div>
+      <div class="stat-label">servidores gerenciados</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-icon">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:.65">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+      </div>
+      <div class="stat-num"><span class="count-up" data-target="48">0</span>+</div>
+      <div class="stat-label">funções Lambda</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-icon">
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="opacity:.65">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+        </svg>
+      </div>
+      <div class="stat-num"><span class="count-up" data-target="30">0</span>+</div>
+      <div class="stat-label">views Power BI</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-grid">
+  <div class="col-main">
+
+    <section id="experiencia">
+      <div class="section-title">Experiência</div>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <span class="tl-empresa">Pontual Tecnologia</span>
+            <span class="tl-periodo">Dez/2017 — Atual</span>
+          </div>
+          <div class="tl-cargo">Líder de Infraestrutura de TI</div>
+          <ul>
+            <li>Administro 20+ servidores Windows Server em AWS e LGVHost com Active Directory, DNS, GPO, RDS com RemoteApp e Firebird em produção para clientes das redes Pontual e ByteWave</li>
+            <li>Gerencio infraestrutura AWS com EC2, EBS, S3, Glacier Deep Archive, Route 53, CloudTrail e IAM — 48+ funções Lambda acionadas via EventBridge automatizam operações agendadas por cliente</li>
+            <li>Monitoramento centralizado com Zabbix e Grafana; alertas via Discord e Telegram com erro e causa identificados automaticamente; remediação remota por WinRM e SSH sem necessidade de RDP</li>
+            <li>Administro Firebird 5 em Linux com validação automática de integridade dos backups via S3 e restauração com gbak</li>
+            <li>Dashboards Power BI com 30+ views SQL no Firebird para análise operacional e acompanhamento de indicadores por cliente</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <span class="tl-empresa">Infocorp</span>
+            <span class="tl-periodo">Mai/2014 — Mar/2016</span>
+          </div>
+          <div class="tl-cargo">Técnico de Suporte</div>
+          <ul>
+            <li>Suporte técnico remoto, telefônico e presencial para usuários finais e empresas</li>
+            <li>Administração de servidores Windows Server 2012 em ambiente virtualizado com VMware</li>
+            <li>Manutenção de equipamentos, cabeamento de laboratórios e configuração de redes</li>
+            <li>Homologação de programas administrativos e manutenção de servidores de rede e impressão</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="projetos" style="border-top:1px solid var(--border)">
+      <div class="section-title">Projetos</div>
+      <div class="project-grid">
+
+        <div class="project-card">
+          <div class="project-card-name">Automação AWS com Lambda e EventBridge</div>
+          <div class="project-card-tech">Python · Lambda · EventBridge · boto3</div>
+          <p>48+ funções com agendamentos individuais por cliente. Relatório semanal automático com custos em R$, câmbio do dia, detecção de recursos novos e alertas de anomalias.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-name">Monitoramento e Remediação Remota</div>
+          <div class="project-card-tech">Python · Zabbix · WinRM · SSH · Telegram</div>
+          <p>Alertas com erro e causa identificados. Remediação direta pelo Telegram com confirmação antes de executar. Deploy simultâneo em 20+ máquinas via WinRM.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-name">Backup Firebird para AWS S3</div>
+          <div class="project-card-tech">PowerShell · Inno Setup · S3 · Firebird</div>
+          <p>Backup automatizado de bancos e XMLs fiscais para S3 com validação por restauração real. Instalador gráfico compatível com Windows Server 2008, sem dependências externas.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-name">BI Corporativo — Power BI e Firebird</div>
+          <div class="project-card-tech">Power BI · Excel · Firebird SQL</div>
+          <p>30+ views SQL cobrindo vendas, estoque, margem e financeiro integradas ao Power BI. Planilhas Excel para análise operacional por cliente.</p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-card-name">Observabilidade MikroTik</div>
+          <div class="project-card-tech">Grafana · InfluxDB · Telegraf · SNMP</div>
+          <p>Métricas de banda e disponibilidade de links em tempo real com alertas automáticos de queda e histórico de incidentes por roteador e link.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <div class="col-side">
+
+    <section id="competencias">
+      <div class="section-title">Habilidades</div>
+
+      <div class="skill-group fade-in">
+        <div class="skill-label">Cloud AWS</div>
+        <div class="tags">
+          <span class="tag">EC2</span><span class="tag">Lambda</span>
+          <span class="tag">EventBridge</span><span class="tag">S3</span>
+          <span class="tag">Glacier</span><span class="tag">EBS</span>
+          <span class="tag">Route 53</span><span class="tag">CloudTrail</span>
+          <span class="tag">IAM</span><span class="tag">Cost Explorer</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in" style="transition-delay:.06s">
+        <div class="skill-label">Windows Server</div>
+        <div class="tags">
+          <span class="tag">AD DS</span><span class="tag">DNS</span>
+          <span class="tag">GPO</span><span class="tag">RDS</span>
+          <span class="tag">IIS</span><span class="tag">File Server</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in" style="transition-delay:.12s">
+        <div class="skill-label">Monitoramento</div>
+        <div class="tags">
+          <span class="tag">Zabbix</span><span class="tag">Grafana</span>
+          <span class="tag">InfluxDB</span><span class="tag">Telegraf</span>
+          <span class="tag">SNMP</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in" style="transition-delay:.18s">
+        <div class="skill-label">Automação</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">PowerShell</span>
+          <span class="tag">WinRM</span><span class="tag">Telegram Bot</span>
+          <span class="tag">Inno Setup</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in" style="transition-delay:.24s">
+        <div class="skill-label">BI e Dados</div>
+        <div class="tags">
+          <span class="tag">Power BI</span><span class="tag">Excel Avançado</span>
+          <span class="tag">Firebird SQL</span><span class="tag">ETL</span>
+          <span class="tag">GLPI</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in" style="transition-delay:.30s">
+        <div class="skill-label">Redes e Infra</div>
+        <div class="tags">
+          <span class="tag">MikroTik</span><span class="tag">VPN Pritunl</span>
+          <span class="tag">VLANs</span><span class="tag">Firewall</span>
+          <span class="tag">Linux</span><span class="tag">Git</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="formacao" style="border-top:1px solid var(--border)">
+      <div class="section-title">Formação</div>
+
+      <div class="edu-item fade-in">
+        <div class="edu-curso">Análise e Des. de Sistemas</div>
+        <div class="edu-inst">UniRios — em andamento</div>
+      </div>
+      <div class="edu-item fade-in" style="transition-delay:.07s">
+        <div class="edu-curso">Power BI Avançado</div>
+        <div class="edu-inst">Unigranrio — Duque de Caxias</div>
+      </div>
+      <div class="edu-item fade-in" style="transition-delay:.14s">
+        <div class="edu-curso">Técnico em Redes</div>
+        <div class="edu-inst">Senac — Rio de Janeiro</div>
+      </div>
+      <div class="edu-item fade-in" style="transition-delay:.21s">
+        <div class="edu-curso">TIC</div>
+        <div class="edu-inst">Senai — Rio de Janeiro</div>
+      </div>
+      <div class="edu-item fade-in" style="transition-delay:.28s">
+        <div class="edu-curso">Infraestrutura e Office Avançado</div>
+        <div class="edu-inst">Microlins — Rio de Janeiro</div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  Deivyd Garcez · <a href="mailto:garcezdeivyd@gmail.com">garcezdeivyd@gmail.com</a> · Rio de Janeiro, RJ
+</footer>
+
+<!-- FAB -->
+<div class="fab">
+  <a href="cv.html" class="fab-btn">
+    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+    </svg>
+    CV Tradicional
+  </a>
+  <button class="fab-btn" onclick="window.print()">
+    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+    </svg>
+    Imprimir
+  </button>
+</div>
+
+<script>
+  // Scroll progress
+  const prog = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    prog.style.width = pct + '%';
+  });
+
+  // Scroll animations
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.tl-item, .project-card, .fade-in').forEach(el => io.observe(el));
+
+  // Counter animation
+  function runCounters() {
+    document.querySelectorAll('.count-up').forEach(el => {
+      const target = +el.dataset.target;
+      let cur = 0;
+      const step = target / (1400 / 16);
+      const t = setInterval(() => {
+        cur += step;
+        if (cur >= target) { el.textContent = target; clearInterval(t); }
+        else el.textContent = Math.floor(cur);
+      }, 16);
+    });
+  }
+
+  const statsIo = new IntersectionObserver((e) => {
+    if (e[0].isIntersecting) { runCounters(); statsIo.disconnect(); }
+  }, { threshold: 0.5 });
+  statsIo.observe(document.querySelector('.stats-bar'));
+
+  // Active nav
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const navIo = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => navIo.observe(s));
+
+  // Dark mode
+  const html = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const sun = document.getElementById('iconSun');
+  const moon = document.getElementById('iconMoon');
+
+  const saved = localStorage.getItem('theme') || 'light';
+  html.setAttribute('data-theme', saved);
+  sun.style.display = saved === 'dark' ? 'block' : 'none';
+  moon.style.display = saved === 'dark' ? 'none' : 'block';
+
+  btn.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    sun.style.display = next === 'dark' ? 'block' : 'none';
+    moon.style.display = next === 'dark' ? 'none' : 'block';
+  });
+</script>
+
+</body>
+</html>
