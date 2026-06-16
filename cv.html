@@ -199,6 +199,26 @@
 
   .cv-project p { font-size: 12px; color: var(--ink2); line-height: 1.5; }
 
+  .cv-project-badge {
+    display: inline-flex;
+    font-size: 8.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-bottom: 6px;
+  }
+
+  .cv-badge-cloud    { background: #fff7ed; color: #c2410c; }
+  .cv-badge-devops   { background: #f0fdf4; color: #15803d; }
+  .cv-badge-analytics{ background: #eff6ff; color: #1d4ed8; }
+  .cv-badge-infra    { background: #faf5ff; color: #7e22ce; }
+  .cv-badge-seguranca{ background: #fff1f2; color: #be123c; }
+  .cv-badge-automacao{ background: #eef2ff; color: #4338ca; }
+
+  .cv-metric { font-weight: 700; color: var(--ink); }
+
   /* SIDEBAR SKILLS */
   .cv-skill-group { margin-bottom: 20px; }
 
@@ -433,27 +453,45 @@
         <div class="cv-projects">
 
           <div class="cv-project">
+            <span class="cv-project-badge cv-badge-infra">Infra</span>
+            <div class="cv-project-name">ERP via RDS RemoteApp — Multi-Cliente</div>
+            <div class="cv-project-tech">Windows Server · RDS · RemoteApp · AD DS · GPO · Firebird · AWS EC2</div>
+            <p>Deploy e gestão do ERP Automec via RemoteApp para <span class="cv-metric">23 clientes em produção</span>, com pico de <span class="cv-metric">270+ usuários simultâneos</span>. Infraestrutura híbrida AWS EC2 + LGVHost com AD, GPO, File Server e Firebird, suportando múltiplas filiais por cliente.</p>
+          </div>
+
+          <div class="cv-project">
+            <span class="cv-project-badge cv-badge-cloud">Cloud</span>
             <div class="cv-project-name">Automação AWS — Lambda e EventBridge</div>
             <div class="cv-project-tech">Python · Lambda · EventBridge · boto3 · S3</div>
-            <p>48+ funções Lambda com agendamentos individuais por cliente. Relatório semanal automático com custos em R$ com câmbio do dia, detecção de recursos novos/removidos e alertas de anomalias de custo.</p>
+            <p><span class="cv-metric">48+ funções Lambda</span> com agendamentos individuais por cliente. Relatório semanal automático com custos em R$ com câmbio do dia, detecção de recursos novos/removidos e alertas de anomalias.</p>
           </div>
 
           <div class="cv-project">
+            <span class="cv-project-badge cv-badge-devops">DevOps</span>
             <div class="cv-project-name">Monitoramento e Remediação Remota</div>
             <div class="cv-project-tech">Python · Zabbix · Grafana · WinRM · SSH · Telegram Bot</div>
-            <p>Alertas no Discord/Telegram com erro e causa já identificados. Remediação direta pelo Telegram com confirmação. Deploy simultâneo em 20+ máquinas via WinRM sem acesso RDP.</p>
+            <p>Alertas no Discord/Telegram com erro e causa já identificados. Remediação direta pelo Telegram com confirmação. Deploy simultâneo em <span class="cv-metric">20+ máquinas</span> via WinRM sem acesso RDP.</p>
           </div>
 
           <div class="cv-project">
-            <div class="cv-project-name">Backup Firebird para AWS S3 + Validação</div>
-            <div class="cv-project-tech">PowerShell · Inno Setup · S3 · Glacier · Firebird/gbak</div>
-            <p>Backup automatizado de bancos FDB e XMLs fiscais para S3/Glacier com validação por restauração real via gbak. Instalador gráfico compatível com Windows Server 2008 sem dependências externas.</p>
+            <span class="cv-project-badge cv-badge-seguranca">Segurança</span>
+            <div class="cv-project-name">Segurança e Acesso Remoto</div>
+            <div class="cv-project-tech">Pritunl VPN · PowerShell · WinRM · Windows Firewall</div>
+            <p>VPN corporativa com Pritunl para acesso seguro à infraestrutura. Auditor-RDP: script PowerShell que audita e corrige automaticamente regras de firewall Windows via WinRM, bloqueando IPs não autorizados em todos os servidores.</p>
           </div>
 
           <div class="cv-project">
+            <span class="cv-project-badge cv-badge-automacao">Automação</span>
+            <div class="cv-project-name">Relatórios Automáticos de Infraestrutura</div>
+            <div class="cv-project-tech">Python · AWS Cost Explorer · Lambda · Telegram · Email</div>
+            <p>Relatório semanal com custos AWS em R$ com câmbio do dia e alertas de anomalias. Relatório mensal com status de servidores, swap, remediações e backups — entregue via Telegram e email sem intervenção manual.</p>
+          </div>
+
+          <div class="cv-project">
+            <span class="cv-project-badge cv-badge-analytics">Analytics</span>
             <div class="cv-project-name">BI Corporativo — Power BI e Firebird</div>
             <div class="cv-project-tech">Power BI · Excel Avançado · Firebird SQL · ETL</div>
-            <p>30+ views SQL cobrindo vendas, estoque, margem e financeiro integradas ao Power BI. Planilhas Excel para análise operacional e KPIs por cliente.</p>
+            <p><span class="cv-metric">30+ views SQL</span> cobrindo vendas, estoque, margem e financeiro integradas ao Power BI. Planilhas Excel para análise operacional e KPIs por cliente.</p>
           </div>
 
         </div>

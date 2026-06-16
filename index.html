@@ -427,10 +427,43 @@
 
   .project-card.visible { opacity: 1; transform: none; }
 
-  .project-card:nth-child(2) { transition-delay: .08s; }
-  .project-card:nth-child(3) { transition-delay: .16s; }
-  .project-card:nth-child(4) { transition-delay: .24s; }
-  .project-card:nth-child(5) { transition-delay: .32s; grid-column: 1 / -1; }
+  .project-card:nth-child(2) { transition-delay: .07s; }
+  .project-card:nth-child(3) { transition-delay: .14s; }
+  .project-card:nth-child(4) { transition-delay: .21s; }
+  .project-card:nth-child(5) { transition-delay: .28s; }
+  .project-card:nth-child(6) { transition-delay: .35s; }
+  .project-card:nth-child(7) { transition-delay: .42s; }
+  .project-card:nth-child(8) { transition-delay: .49s; }
+
+  .project-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-bottom: 11px;
+  }
+
+  .badge-cloud    { background: #fff7ed; color: #c2410c; }
+  .badge-devops   { background: #f0fdf4; color: #15803d; }
+  .badge-analytics{ background: #eff6ff; color: #1d4ed8; }
+  .badge-infra    { background: #faf5ff; color: #7e22ce; }
+  .badge-redes    { background: #f0fdfa; color: #0f766e; }
+  .badge-seguranca{ background: #fff1f2; color: #be123c; }
+  .badge-automacao{ background: #eef2ff; color: #4338ca; }
+
+  [data-theme="dark"] .badge-cloud    { background: rgba(194,65,12,.2);  color: #fb923c; }
+  [data-theme="dark"] .badge-devops   { background: rgba(21,128,61,.2);  color: #4ade80; }
+  [data-theme="dark"] .badge-analytics{ background: rgba(29,78,216,.2);  color: #60a5fa; }
+  [data-theme="dark"] .badge-infra    { background: rgba(126,34,206,.2); color: #c084fc; }
+  [data-theme="dark"] .badge-redes    { background: rgba(15,118,110,.2); color: #2dd4bf; }
+  [data-theme="dark"] .badge-seguranca{ background: rgba(190,18,60,.2);  color: #fb7185; }
+  [data-theme="dark"] .badge-automacao{ background: rgba(67,56,202,.2);  color: #818cf8; }
+
+  .project-metric { font-weight: 700; color: var(--text); }
 
   .project-card:hover {
     transform: translateY(-4px);
@@ -559,7 +592,7 @@
     .col-main { border-right: none; border-bottom: 1px solid var(--border); }
     section { padding: 36px 24px; }
     .project-grid { grid-template-columns: 1fr; }
-    .project-card:nth-child(5) { grid-column: auto; }
+    .project-card:nth-child(n) { grid-column: auto; }
     .fab { bottom: 16px; right: 16px; }
   }
 
@@ -590,8 +623,6 @@
     <ul class="nav-links">
       <li><a href="#experiencia">Experiência</a></li>
       <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#competencias">Habilidades</a></li>
-      <li><a href="#formacao">Formação</a></li>
     </ul>
     <div class="nav-actions">
       <a href="cv.html" class="btn-cv">📄 Ver CV</a>
@@ -751,30 +782,56 @@
       <div class="project-grid">
 
         <div class="project-card">
+          <span class="project-badge badge-infra">Infra</span>
+          <div class="project-card-name">ERP via RDS RemoteApp — Multi-Cliente</div>
+          <div class="project-card-tech">Windows Server · RDS · RemoteApp · AD DS · GPO · Firebird · AWS EC2</div>
+          <p>Deploy e gestão do ERP Automec via RemoteApp para <span class="project-metric">23 clientes em produção</span>, com pico de <span class="project-metric">270+ usuários simultâneos</span> monitorados via Zabbix. Infraestrutura híbrida AWS EC2 + LGVHost com AD, GPO, File Server e Firebird, suportando múltiplas filiais por cliente.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-badge badge-cloud">Cloud</span>
           <div class="project-card-name">Automação AWS com Lambda e EventBridge</div>
-          <div class="project-card-tech">Python · Lambda · EventBridge · boto3</div>
-          <p>48+ funções com agendamentos individuais por cliente. Relatório semanal automático com custos em R$, câmbio do dia, detecção de recursos novos e alertas de anomalias.</p>
+          <div class="project-card-tech">Python · Lambda · EventBridge · boto3 · S3</div>
+          <p><span class="project-metric">48+ funções Lambda</span> com agendamentos individuais por cliente. Relatório semanal automático com custos em R$ com câmbio do dia, detecção de recursos novos e alertas de anomalias de custo.</p>
         </div>
 
         <div class="project-card">
+          <span class="project-badge badge-devops">DevOps</span>
           <div class="project-card-name">Monitoramento e Remediação Remota</div>
-          <div class="project-card-tech">Python · Zabbix · WinRM · SSH · Telegram</div>
-          <p>Alertas com erro e causa identificados. Remediação direta pelo Telegram com confirmação antes de executar. Deploy simultâneo em 20+ máquinas via WinRM.</p>
+          <div class="project-card-tech">Python · Zabbix · Grafana · WinRM · SSH · Telegram</div>
+          <p>Alertas no Discord e Telegram com erro e causa já identificados. Remediação direta pelo Telegram com confirmação. Deploy simultâneo em <span class="project-metric">20+ máquinas</span> via WinRM sem acesso RDP.</p>
         </div>
 
         <div class="project-card">
-          <div class="project-card-name">Backup Firebird para AWS S3</div>
-          <div class="project-card-tech">PowerShell · Inno Setup · S3 · Firebird</div>
-          <p>Backup automatizado de bancos e XMLs fiscais para S3 com validação por restauração real. Instalador gráfico compatível com Windows Server 2008, sem dependências externas.</p>
+          <span class="project-badge badge-seguranca">Segurança</span>
+          <div class="project-card-name">Segurança e Acesso Remoto</div>
+          <div class="project-card-tech">Pritunl VPN · PowerShell · WinRM · Windows Firewall</div>
+          <p>VPN corporativa com Pritunl para acesso seguro a toda a infraestrutura. Auditor-RDP: script PowerShell que audita e corrige automaticamente regras de firewall Windows via WinRM, bloqueando IPs não autorizados em todos os servidores.</p>
         </div>
 
         <div class="project-card">
+          <span class="project-badge badge-cloud">Cloud</span>
+          <div class="project-card-name">Backup Firebird para AWS S3 + Validação</div>
+          <div class="project-card-tech">PowerShell · Inno Setup · S3 · Glacier · Firebird/gbak</div>
+          <p>Backup automatizado de bancos FDB e XMLs fiscais para S3/Glacier com validação por restauração real via gbak. Instalador gráfico compatível com Windows Server 2008, sem dependências externas.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-badge badge-automacao">Automação</span>
+          <div class="project-card-name">Relatórios Automáticos de Infraestrutura</div>
+          <div class="project-card-tech">Python · AWS Cost Explorer · Lambda · Telegram · Email</div>
+          <p>Relatório semanal com custos AWS em R$ com câmbio do dia e alertas de anomalias. Relatório mensal com status de servidores, swap, remediações e backups — entregue automaticamente via Telegram e email, sem intervenção manual.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-badge badge-analytics">Analytics</span>
           <div class="project-card-name">BI Corporativo — Power BI e Firebird</div>
-          <div class="project-card-tech">Power BI · Excel · Firebird SQL</div>
-          <p>30+ views SQL cobrindo vendas, estoque, margem e financeiro integradas ao Power BI. Planilhas Excel para análise operacional por cliente.</p>
+          <div class="project-card-tech">Power BI · Excel Avançado · Firebird SQL · ETL</div>
+          <p><span class="project-metric">30+ views SQL</span> cobrindo vendas, estoque, margem e financeiro integradas ao Power BI. Planilhas Excel para análise operacional e KPIs por cliente.</p>
         </div>
 
         <div class="project-card">
+          <span class="project-badge badge-redes">Redes</span>
           <div class="project-card-name">Observabilidade MikroTik</div>
           <div class="project-card-tech">Grafana · InfluxDB · Telegraf · SNMP</div>
           <p>Métricas de banda e disponibilidade de links em tempo real com alertas automáticos de queda e histórico de incidentes por roteador e link.</p>
