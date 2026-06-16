@@ -3,361 +3,334 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deivyd Garcez — CV</title>
+<title>Deivyd Garcez - CV</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
+    --blue: #1e3a8a;
+    --blue2: #2563eb;
     --ink: #111827;
     --ink2: #374151;
     --muted: #6b7280;
-    --accent: #1e40af;
-    --accent2: #2563eb;
-    --accent-pale: #eff6ff;
-    --sidebar: #f8fafc;
     --border: #e5e7eb;
+    --sidebar-bg: #f1f5f9;
+    --accent-pale: #eff6ff;
     --white: #ffffff;
   }
 
-  html { scroll-behavior: smooth; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   body {
     font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-    background: #e8ecf3;
+    background: #dde3ee;
     color: var(--ink);
-    font-size: 13px;
-    line-height: 1.6;
-    min-height: 100vh;
-    padding: 40px 20px 60px;
-  }
-
-  /* PAPER */
-  .page {
-    max-width: 860px;
-    margin: 0 auto;
-    background: var(--white);
-    box-shadow: 0 4px 40px rgba(0,0,0,.14), 0 1px 4px rgba(0,0,0,.08);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  /* HEADER */
-  .cv-header {
-    background: var(--accent);
-    padding: 36px 48px 32px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    align-items: start;
-  }
-
-  .cv-name {
-    font-size: 32px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: -1px;
-    line-height: 1.1;
-  }
-
-  .cv-title {
-    font-size: 12px;
-    color: #93c5fd;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    font-weight: 500;
-    margin-top: 8px;
-  }
-
-  .cv-contacts { text-align: right; }
-
-  .cv-contact-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
-    color: #bfdbfe;
-    font-size: 12.5px;
-    margin-bottom: 8px;
-  }
-
-  .cv-contact-item a { color: #93c5fd; text-decoration: none; }
-  .cv-contact-item svg { opacity: .7; flex-shrink: 0; }
-
-  /* TAGLINE STRIP */
-  .cv-tagline {
-    background: #1d3a9e;
-    padding: 10px 48px;
-    color: #bfdbfe;
-    font-size: 12.5px;
-    line-height: 1.65;
-    border-bottom: 3px solid var(--accent2);
-  }
-
-  /* BODY GRID */
-  .cv-body {
-    display: grid;
-    grid-template-columns: 1fr 218px;
-  }
-
-  .cv-main { padding: 32px 40px; border-right: 1px solid var(--border); }
-
-  .cv-side { background: var(--sidebar); padding: 32px 24px; }
-
-  /* SECTION */
-  .cv-section { margin-bottom: 30px; }
-
-  .cv-section-title {
-    font-size: 9.5px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: var(--accent);
-    margin-bottom: 16px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid var(--accent);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .cv-section-title svg { opacity: .7; }
-
-  /* EXPERIENCE */
-  .cv-exp { margin-bottom: 22px; }
-
-  .cv-exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 3px;
-  }
-
-  .cv-exp-company {
-    font-weight: 700;
-    font-size: 13.5px;
-    color: var(--ink);
-  }
-
-  .cv-exp-period {
-    font-size: 11px;
-    color: var(--muted);
-    white-space: nowrap;
-    font-weight: 500;
-    background: var(--accent-pale);
-    color: var(--accent);
-    padding: 2px 8px;
-    border-radius: 4px;
-  }
-
-  .cv-exp-role {
-    font-size: 12.5px;
-    color: var(--accent2);
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
-  .cv-exp ul { padding-left: 0; list-style: none; }
-
-  .cv-exp li {
-    font-size: 12.5px;
-    color: var(--ink2);
-    margin-bottom: 5px;
-    padding-left: 14px;
-    position: relative;
+    font-size: 10.5px;
     line-height: 1.55;
+    padding: 28px 20px 40px;
   }
 
-  .cv-exp li::before {
-    content: '▸';
-    position: absolute; left: 0;
-    color: var(--accent2);
-    font-size: 10px;
-    top: 2px;
-  }
-
-  /* PROJECTS */
-  .cv-projects { display: flex; flex-direction: column; gap: 14px; }
-
-  .cv-project {
-    border-left: 3px solid var(--accent2);
-    padding: 10px 14px;
-    background: var(--accent-pale);
-    border-radius: 0 6px 6px 0;
-  }
-
-  .cv-project-name { font-weight: 700; font-size: 12.5px; color: var(--ink); }
-
-  .cv-project-tech {
-    font-size: 10.5px;
-    color: var(--accent);
-    font-weight: 600;
-    margin: 3px 0 6px;
-  }
-
-  .cv-project p { font-size: 12px; color: var(--ink2); line-height: 1.5; }
-
-  .cv-project-badge {
-    display: inline-flex;
-    font-size: 8.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .8px;
-    padding: 2px 7px;
-    border-radius: 20px;
-    margin-bottom: 6px;
-  }
-
-  .cv-badge-cloud    { background: #fff7ed; color: #c2410c; }
-  .cv-badge-devops   { background: #f0fdf4; color: #15803d; }
-  .cv-badge-analytics{ background: #eff6ff; color: #1d4ed8; }
-  .cv-badge-infra    { background: #faf5ff; color: #7e22ce; }
-  .cv-badge-seguranca{ background: #fff1f2; color: #be123c; }
-  .cv-badge-automacao{ background: #eef2ff; color: #4338ca; }
-
-  .cv-metric { font-weight: 700; color: var(--ink); }
-
-  /* SIDEBAR SKILLS */
-  .cv-skill-group { margin-bottom: 20px; }
-
-  .cv-skill-label {
-    font-size: 9.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-
-  .cv-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-
-  .cv-tag {
-    background: var(--white);
-    color: var(--ink2);
-    border: 1px solid var(--border);
-    font-size: 10.5px;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-weight: 500;
-  }
-
-  /* EDUCATION */
-  .cv-edu-item { margin-bottom: 14px; padding-left: 10px; border-left: 2px solid var(--accent2); }
-  .cv-edu-curso { font-weight: 600; font-size: 12px; color: var(--ink); line-height: 1.3; }
-  .cv-edu-inst { font-size: 11px; color: var(--muted); margin-top: 2px; }
-
-  /* SEPARATOR */
-  .cv-sep { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
-
-  /* LANGUAGE */
-  .cv-lang-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 12px; }
-  .cv-lang-name { font-weight: 600; color: var(--ink); }
-  .cv-lang-level { font-size: 11px; color: var(--muted); }
-  .cv-lang-dots { display: flex; gap: 3px; margin-top: 3px; }
-  .cv-lang-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
-  .cv-lang-dot.filled { background: var(--accent2); }
-
-  /* VIEW ONLINE BUTTON */
-  .cv-footer {
-    background: #f1f5f9;
-    border-top: 1px solid var(--border);
-    padding: 14px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 11.5px;
-    color: var(--muted);
-  }
-
-  .cv-footer a { color: var(--accent2); text-decoration: none; font-weight: 600; }
-
-  /* NAV BAR (screen only) */
+  /* SCREEN NAV */
   .screen-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    background: rgba(30,64,175,.97);
+    background: rgba(30,58,138,.97);
     backdrop-filter: blur(12px);
-    z-index: 100;
-    padding: 0 40px;
-    height: 50px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 20px rgba(0,0,0,.3);
+    padding: 0 36px;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,.3);
   }
 
-  .screen-nav a { color: #bfdbfe; text-decoration: none; font-size: 13px; font-weight: 500; transition: color .2s; }
-  .screen-nav a:hover { color: #fff; }
+  .nav-left { color: #93c5fd; font-weight: 700; font-size: 13px; display: flex; align-items: center; gap: 7px; }
 
-  .screen-nav-left { display: flex; align-items: center; gap: 6px; color: #93c5fd; font-weight: 700; font-size: 14px; }
+  .nav-right { display: flex; align-items: center; gap: 14px; }
 
-  .screen-nav-right { display: flex; gap: 16px; }
+  .nav-right a { color: #bfdbfe; text-decoration: none; font-size: 12.5px; transition: color .2s; }
+  .nav-right a:hover { color: #fff; }
 
   .btn-print {
     background: rgba(255,255,255,.15);
     color: #fff;
     border: 1px solid rgba(255,255,255,.25);
-    padding: 6px 16px;
+    padding: 5px 14px;
     border-radius: 6px;
-    font-size: 12px;
+    font-size: 11.5px;
     font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 7px;
-    transition: background .2s;
+    gap: 6px;
     font-family: inherit;
+    transition: background .2s;
   }
 
   .btn-print:hover { background: rgba(255,255,255,.25); }
 
+  /* PAGE */
+  .page {
+    max-width: 794px;
+    margin: 56px auto 0;
+    background: var(--white);
+    box-shadow: 0 4px 40px rgba(0,0,0,.18);
+  }
+
+  /* HEADER */
+  .cv-header {
+    background: var(--blue);
+    padding: 20px 28px 18px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .cv-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+  }
+
+  .cv-title {
+    font-size: 10.5px;
+    color: #93c5fd;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-top: 5px;
+  }
+
+  .cv-contacts { text-align: right; }
+
+  .cv-contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    color: #bfdbfe;
+    font-size: 10.5px;
+    margin-bottom: 6px;
+  }
+
+  .cv-contact-row a { color: #93c5fd; text-decoration: none; }
+  .cv-contact-row svg { opacity: .65; flex-shrink: 0; }
+
+  /* PROFILE STRIP */
+  .cv-profile {
+    background: #1e3a8a;
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding: 9px 28px;
+    color: #bfdbfe;
+    font-size: 10.5px;
+    line-height: 1.6;
+  }
+
+  /* BODY */
+  .cv-body {
+    display: grid;
+    grid-template-columns: 188px 1fr;
+  }
+
+  /* SIDEBAR */
+  .cv-side {
+    background: var(--sidebar-bg);
+    padding: 16px 16px;
+    border-right: 1px solid var(--border);
+  }
+
+  /* MAIN */
+  .cv-main { padding: 16px 22px; }
+
+  /* SECTION TITLE */
+  .sec-title {
+    font-size: 8.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--blue2);
+    border-bottom: 1.5px solid var(--blue2);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .sec-title svg { opacity: .7; }
+
+  .cv-section { margin-bottom: 14px; }
+
+  /* EXPERIENCE */
+  .exp-item { margin-bottom: 12px; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 1px;
+  }
+
+  .exp-company { font-weight: 700; font-size: 11px; color: var(--ink); }
+
+  .exp-period {
+    font-size: 9.5px;
+    color: var(--blue2);
+    font-weight: 600;
+    background: var(--accent-pale);
+    padding: 1px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .exp-role { font-size: 10px; color: var(--blue2); font-weight: 600; margin-bottom: 6px; }
+
+  .exp-item ul { list-style: none; padding: 0; }
+
+  .exp-item li {
+    font-size: 10.5px;
+    color: var(--ink2);
+    padding-left: 12px;
+    position: relative;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+
+  .exp-item li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--blue2);
+    font-size: 9px;
+    top: 1px;
+  }
+
+  /* PROJECTS */
+  .proj-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .proj-card {
+    border-left: 2.5px solid var(--blue2);
+    background: var(--accent-pale);
+    padding: 7px 10px;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .proj-badge {
+    display: inline-block;
+    font-size: 7.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .7px;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+  }
+
+  .badge-cloud    { background: #fff7ed; color: #c2410c; }
+  .badge-devops   { background: #f0fdf4; color: #15803d; }
+  .badge-analytics{ background: #eff6ff; color: #1d4ed8; }
+  .badge-infra    { background: #faf5ff; color: #7e22ce; }
+  .badge-seguranca{ background: #fff1f2; color: #be123c; }
+  .badge-automacao{ background: #eef2ff; color: #4338ca; }
+
+  .proj-name { font-weight: 700; font-size: 10.5px; color: var(--ink); margin-bottom: 2px; }
+  .proj-tech { font-size: 9px; color: var(--blue2); font-weight: 600; margin-bottom: 4px; }
+  .proj-card p { font-size: 10px; color: var(--ink2); line-height: 1.5; }
+  .proj-metric { font-weight: 700; color: var(--ink); }
+
+  /* SIDEBAR CONTENT */
+  .skill-group { margin-bottom: 10px; }
+
+  .skill-label {
+    font-size: 8.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--blue2);
+    margin-bottom: 4px;
+  }
+
+  .skill-text { font-size: 10px; color: var(--ink2); line-height: 1.6; }
+
+  .edu-item { margin-bottom: 9px; padding-left: 8px; border-left: 2px solid var(--blue2); }
+  .edu-curso { font-weight: 600; font-size: 10.5px; color: var(--ink); }
+  .edu-inst { font-size: 9.5px; color: var(--muted); }
+
+  .lang-item { display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 5px; }
+  .lang-name { font-weight: 600; color: var(--ink); }
+  .lang-level { color: var(--muted); }
+  .lang-dots { display: flex; gap: 2px; margin-top: 2px; }
+  .lang-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); }
+  .lang-dot.on { background: var(--blue2); }
+
+  /* DIVIDER */
+  .sep { border: none; border-top: 1px solid var(--border); margin: 12px 0; }
+
+  /* FOOTER */
+  .cv-footer {
+    background: #f8fafc;
+    border-top: 1px solid var(--border);
+    padding: 8px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 9.5px;
+    color: var(--muted);
+  }
+
+  .cv-footer a { color: var(--blue2); text-decoration: none; font-weight: 600; }
+
   /* PRINT */
   @media print {
-    body { background: #fff; padding: 0; font-size: 11.5px; }
+    body { background: #fff; padding: 0; font-size: 10px; }
     .screen-nav { display: none !important; }
-    .page { box-shadow: none; border-radius: 0; max-width: 100%; }
-    .cv-header { padding: 24px 36px 20px; }
-    .cv-name { font-size: 26px; }
-    .cv-tagline { padding: 8px 36px; }
-    .cv-main { padding: 22px 30px; }
-    .cv-side { padding: 22px 20px; }
-    .cv-section { margin-bottom: 20px; }
-    .cv-exp { margin-bottom: 16px; }
+    .page { margin: 0; max-width: 100%; box-shadow: none; }
+    .cv-header { padding: 14px 20px 12px; }
+    .cv-name { font-size: 22px; }
+    .cv-profile { padding: 7px 20px; }
+    .cv-side { padding: 12px 12px; }
+    .cv-main { padding: 12px 16px; }
+    .cv-section { margin-bottom: 10px; }
+    .exp-item { margin-bottom: 9px; }
     .cv-footer { display: none; }
-    .cv-project { page-break-inside: avoid; }
   }
 
   @media (max-width: 640px) {
     body { padding: 0; }
     .screen-nav { padding: 0 16px; }
-    .screen-nav-right { display: none; }
-    .cv-header { padding: 24px; grid-template-columns: 1fr; }
+    .page { margin-top: 48px; }
+    .cv-header { grid-template-columns: 1fr; padding: 18px 20px; }
     .cv-contacts { text-align: left; }
-    .cv-contact-item { justify-content: flex-start; }
-    .cv-tagline { padding: 10px 24px; }
+    .cv-contact-row { justify-content: flex-start; }
     .cv-body { grid-template-columns: 1fr; }
-    .cv-main { padding: 24px; border-right: none; border-bottom: 1px solid var(--border); }
-    .cv-side { padding: 24px; }
-    .cv-footer { padding: 14px 24px; flex-direction: column; gap: 6px; }
+    .cv-side { border-right: none; border-bottom: 1px solid var(--border); }
+    .proj-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- SCREEN NAV -->
 <nav class="screen-nav">
-  <div class="screen-nav-left">
-    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <div class="nav-left">
+    <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
     </svg>
-    Currículo — Deivyd Garcez
+    Curriculo - Deivyd Garcez
   </div>
-  <div class="screen-nav-right">
-    <a href="index.html">← Site Interativo</a>
+  <div class="nav-right">
+    <a href="index.html">← Site interativo</a>
     <button class="btn-print" onclick="window.print()">
-      <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
       </svg>
       Salvar PDF
@@ -365,271 +338,216 @@
   </div>
 </nav>
 
-<!-- PAGE -->
-<div class="page" style="margin-top:70px">
+<div class="page">
 
   <!-- HEADER -->
   <div class="cv-header">
     <div>
       <div class="cv-name">Deivyd Garcez</div>
-      <div class="cv-title">Líder de Infraestrutura de TI</div>
+      <div class="cv-title">Lider de Infraestrutura de TI</div>
     </div>
     <div class="cv-contacts">
-      <div class="cv-contact-item">
-        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
+      <div class="cv-contact-row">
+        <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
         (21) 9 9486-5377
       </div>
-      <div class="cv-contact-item">
-        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <div class="cv-contact-row">
+        <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         <a href="mailto:garcezdeivyd@gmail.com">garcezdeivyd@gmail.com</a>
       </div>
-      <div class="cv-contact-item">
-        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+      <div class="cv-contact-row">
+        <svg width="11" height="11" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
         <a href="https://github.com/deivydgarcez" target="_blank">github.com/deivydgarcez</a>
       </div>
-      <div class="cv-contact-item">
-        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        Rio de Janeiro — RJ
+      <div class="cv-contact-row">
+        <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        Rio de Janeiro, RJ
       </div>
     </div>
   </div>
 
-  <!-- TAGLINE -->
-  <div class="cv-tagline">
-    Profissional de infraestrutura com mais de uma década de experiência em servidores Windows, Linux e cloud AWS. Desde 2017 na liderança de TI atendendo redes varejistas com múltiplas filiais — automação em Python e PowerShell, monitoramento centralizado, dashboards Power BI e operações com mínima intervenção manual.
+  <!-- PROFILE STRIP -->
+  <div class="cv-profile">
+    Profissional de infraestrutura com mais de uma decada de experiencia em servidores Windows, Linux e cloud AWS. Desde 2017 liderando TI para redes varejistas com multiplas filiais - automacao em Python e PowerShell, monitoramento centralizado, dashboards Power BI e operacoes com minima intervencao manual.
   </div>
 
   <!-- BODY -->
   <div class="cv-body">
+
+    <!-- SIDEBAR -->
+    <div class="cv-side">
+
+      <div class="cv-section">
+        <div class="sec-title">
+          <svg width="10" height="10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          Habilidades
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Cloud AWS</div>
+          <div class="skill-text">EC2, Lambda, EventBridge, S3, Glacier, EBS, Route 53, IAM, CloudTrail, Cost Explorer</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Windows Server</div>
+          <div class="skill-text">AD DS, DNS, GPO, RDS, RemoteApp, IIS, File Server</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Monitoramento</div>
+          <div class="skill-text">Zabbix, Grafana, InfluxDB, Telegraf, SNMP</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Automacao</div>
+          <div class="skill-text">Python, PowerShell, WinRM, Telegram Bot, Inno Setup</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">BI e Dados</div>
+          <div class="skill-text">Power BI, Excel Avancado, Firebird SQL, ETL, GLPI</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Redes e Infra</div>
+          <div class="skill-text">MikroTik, Pritunl VPN, VLANs, Firewall, Linux, Git</div>
+        </div>
+      </div>
+
+      <hr class="sep">
+
+      <div class="cv-section">
+        <div class="sec-title">
+          <svg width="10" height="10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+          Formacao
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-curso">Analise e Des. de Sistemas</div>
+          <div class="edu-inst">UniRios - em andamento</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-curso">Power BI Avancado</div>
+          <div class="edu-inst">Unigranrio</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-curso">Tecnico em Redes</div>
+          <div class="edu-inst">Senac - Rio de Janeiro</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-curso">TIC / Infra e Office</div>
+          <div class="edu-inst">Senai / Microlins</div>
+        </div>
+      </div>
+
+      <hr class="sep">
+
+      <div class="cv-section">
+        <div class="sec-title">Idiomas</div>
+        <div class="lang-item">
+          <div>
+            <div class="lang-name">Portugues</div>
+            <div class="lang-dots">
+              <div class="lang-dot on"></div><div class="lang-dot on"></div>
+              <div class="lang-dot on"></div><div class="lang-dot on"></div>
+              <div class="lang-dot on"></div>
+            </div>
+          </div>
+          <span class="lang-level">Nativo</span>
+        </div>
+        <div class="lang-item">
+          <div>
+            <div class="lang-name">Ingles</div>
+            <div class="lang-dots">
+              <div class="lang-dot on"></div><div class="lang-dot on"></div>
+              <div class="lang-dot on"></div><div class="lang-dot"></div>
+              <div class="lang-dot"></div>
+            </div>
+          </div>
+          <span class="lang-level">Tecnico</span>
+        </div>
+      </div>
+
+    </div>
 
     <!-- MAIN -->
     <div class="cv-main">
 
       <!-- EXPERIENCE -->
       <div class="cv-section">
-        <div class="cv-section-title">
-          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          Experiência Profissional
+        <div class="sec-title">
+          <svg width="10" height="10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Experiencia Profissional
         </div>
 
-        <div class="cv-exp">
-          <div class="cv-exp-header">
-            <span class="cv-exp-company">Pontual Tecnologia</span>
-            <span class="cv-exp-period">Dez/2017 — Atual · 7+ anos</span>
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-company">Pontual Tecnologia</span>
+            <span class="exp-period">Dez/2017 - Atual</span>
           </div>
-          <div class="cv-exp-role">Líder de Infraestrutura de TI</div>
+          <div class="exp-role">Lider de Infraestrutura de TI</div>
           <ul>
-            <li>Administro 20+ servidores Windows Server em AWS e LGVHost com Active Directory, DNS, GPO, RDS com RemoteApp e banco Firebird em produção para clientes das redes Pontual e ByteWave</li>
-            <li>Gerencio infraestrutura AWS (EC2, EBS, S3/Glacier, Route 53, CloudTrail, IAM) — 48+ funções Lambda acionadas via EventBridge automatizam operações agendadas individualmente por cliente</li>
-            <li>Implementei monitoramento centralizado com Zabbix e Grafana; alertas via Discord e Telegram com erro e causa já identificados; remediação remota via WinRM e SSH sem necessidade de RDP</li>
-            <li>Administro Firebird 5 em Linux com rotina de backup diário para S3 e validação automática de integridade por restauração com gbak</li>
-            <li>Construo dashboards Power BI com 30+ views SQL no Firebird cobrindo vendas, estoque, margem e financeiro; planilhas Excel para análise operacional por cliente</li>
+            <li>Administro 20+ servidores Windows Server em AWS e LGVHost com AD DS, DNS, GPO, RDS RemoteApp e Firebird para 23 clientes em producao com 270+ usuarios simultaneos</li>
+            <li>Gerencio infraestrutura AWS (EC2, S3/Glacier, Lambda, IAM, Route 53) com 48+ funcoes Lambda automatizando operacoes agendadas individualmente por cliente via EventBridge</li>
+            <li>Monitoramento centralizado Zabbix + Grafana com alertas no Discord e Telegram; remediacao remota via WinRM e SSH sem necessidade de RDP</li>
+            <li>Dashboards Power BI com 30+ views SQL no Firebird e rotina de backup diario para S3 com validacao de integridade por restauracao real</li>
           </ul>
         </div>
 
-        <hr class="cv-sep">
+        <hr class="sep">
 
-        <div class="cv-exp">
-          <div class="cv-exp-header">
-            <span class="cv-exp-company">Infocorp</span>
-            <span class="cv-exp-period">Mai/2014 — Mar/2016 · 2 anos</span>
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-company">Infocorp</span>
+            <span class="exp-period">Mai/2014 - Mar/2016</span>
           </div>
-          <div class="cv-exp-role">Técnico de Suporte</div>
+          <div class="exp-role">Tecnico de Suporte</div>
           <ul>
-            <li>Suporte técnico remoto, telefônico e presencial para usuários finais e empresas</li>
-            <li>Administração de servidores Windows Server 2012 em ambiente virtualizado com VMware</li>
-            <li>Manutenção de equipamentos, cabeamento de laboratórios, configuração de switches e roteadores</li>
-            <li>Homologação de programas administrativos e manutenção de servidores de rede e impressão</li>
+            <li>Suporte tecnico remoto, telefonico e presencial para usuarios finais e empresas</li>
+            <li>Administracao de servidores Windows Server 2012 virtualizado com VMware, manutencao de equipamentos e configuracao de redes</li>
           </ul>
         </div>
       </div>
+
+      <hr class="sep">
 
       <!-- PROJECTS -->
       <div class="cv-section">
-        <div class="cv-section-title">
-          <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        <div class="sec-title">
+          <svg width="10" height="10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
           Projetos em Destaque
         </div>
-        <div class="cv-projects">
 
-          <div class="cv-project">
-            <span class="cv-project-badge cv-badge-infra">Infra</span>
-            <div class="cv-project-name">ERP via RDS RemoteApp — Multi-Cliente</div>
-            <div class="cv-project-tech">Windows Server · RDS · RemoteApp · AD DS · GPO · Firebird · AWS EC2</div>
-            <p>Deploy e gestão do ERP Automec via RemoteApp para <span class="cv-metric">23 clientes em produção</span>, com pico de <span class="cv-metric">270+ usuários simultâneos</span>. Infraestrutura híbrida AWS EC2 + LGVHost com AD, GPO, File Server e Firebird, suportando múltiplas filiais por cliente.</p>
+        <div class="proj-grid">
+
+          <div class="proj-card">
+            <span class="proj-badge badge-infra">Infra</span>
+            <div class="proj-name">ERP via RDS RemoteApp</div>
+            <div class="proj-tech">Windows Server · RDS · AD DS · Firebird · AWS EC2</div>
+            <p><span class="proj-metric">23 clientes</span>, pico de <span class="proj-metric">270+ usuarios simultaneos</span>. Infra hibrida AWS + LGVHost com multiplas filiais por cliente.</p>
           </div>
 
-          <div class="cv-project">
-            <span class="cv-project-badge cv-badge-cloud">Cloud</span>
-            <div class="cv-project-name">Automação AWS — Lambda e EventBridge</div>
-            <div class="cv-project-tech">Python · Lambda · EventBridge · boto3 · S3</div>
-            <p><span class="cv-metric">48+ funções Lambda</span> com agendamentos individuais por cliente. Relatório semanal automático com custos em R$ com câmbio do dia, detecção de recursos novos/removidos e alertas de anomalias.</p>
+          <div class="proj-card">
+            <span class="proj-badge badge-devops">DevOps</span>
+            <div class="proj-name">Monitoramento e Remediacao Remota</div>
+            <div class="proj-tech">Python · Zabbix · Grafana · WinRM · Telegram</div>
+            <p>Alertas com causa identificada no Telegram. Remediacao com confirmacao. Deploy em <span class="proj-metric">20+ maquinas</span> simultaneamente via WinRM.</p>
           </div>
 
-          <div class="cv-project">
-            <span class="cv-project-badge cv-badge-devops">DevOps</span>
-            <div class="cv-project-name">Monitoramento e Remediação Remota</div>
-            <div class="cv-project-tech">Python · Zabbix · Grafana · WinRM · SSH · Telegram Bot</div>
-            <p>Alertas no Discord/Telegram com erro e causa já identificados. Remediação direta pelo Telegram com confirmação. Deploy simultâneo em <span class="cv-metric">20+ máquinas</span> via WinRM sem acesso RDP.</p>
+          <div class="proj-card">
+            <span class="proj-badge badge-cloud">Cloud</span>
+            <div class="proj-name">Automacao AWS - Lambda e EventBridge</div>
+            <div class="proj-tech">Python · Lambda · EventBridge · boto3 · S3</div>
+            <p><span class="proj-metric">48+ funcoes Lambda</span> com agendamentos por cliente. Relatorio semanal com custos em R$ e alertas de anomalias automaticos.</p>
           </div>
 
-          <div class="cv-project">
-            <span class="cv-project-badge cv-badge-seguranca">Segurança</span>
-            <div class="cv-project-name">Segurança e Acesso Remoto</div>
-            <div class="cv-project-tech">Pritunl VPN · PowerShell · WinRM · Windows Firewall</div>
-            <p>VPN corporativa com Pritunl para acesso seguro à infraestrutura. Auditor-RDP: script PowerShell que audita e corrige automaticamente regras de firewall Windows via WinRM, bloqueando IPs não autorizados em todos os servidores.</p>
+          <div class="proj-card">
+            <span class="proj-badge badge-seguranca">Seguranca</span>
+            <div class="proj-name">Seguranca e Acesso Remoto</div>
+            <div class="proj-tech">Pritunl VPN · PowerShell · WinRM · Firewall</div>
+            <p>VPN corporativa com Pritunl. Auditor-RDP: corrige automaticamente regras de firewall Windows em todos os servidores via WinRM.</p>
           </div>
 
-          <div class="cv-project">
-            <span class="cv-project-badge cv-badge-automacao">Automação</span>
-            <div class="cv-project-name">Relatórios Automáticos de Infraestrutura</div>
-            <div class="cv-project-tech">Python · AWS Cost Explorer · Lambda · Telegram · Email</div>
-            <p>Relatório semanal com custos AWS em R$ com câmbio do dia e alertas de anomalias. Relatório mensal com status de servidores, swap, remediações e backups — entregue via Telegram e email sem intervenção manual.</p>
-          </div>
-
-          <div class="cv-project">
-            <span class="cv-project-badge cv-badge-analytics">Analytics</span>
-            <div class="cv-project-name">BI Corporativo — Power BI e Firebird</div>
-            <div class="cv-project-tech">Power BI · Excel Avançado · Firebird SQL · ETL</div>
-            <p><span class="cv-metric">30+ views SQL</span> cobrindo vendas, estoque, margem e financeiro integradas ao Power BI. Planilhas Excel para análise operacional e KPIs por cliente.</p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-    <!-- SIDEBAR -->
-    <div class="cv-side">
-
-      <!-- COMPETÊNCIAS -->
-      <div class="cv-section">
-        <div class="cv-section-title">
-          <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-          Competências
-        </div>
-
-        <div class="cv-skill-group">
-          <div class="cv-skill-label">Cloud AWS</div>
-          <div class="cv-tags">
-            <span class="cv-tag">EC2</span><span class="cv-tag">Lambda</span>
-            <span class="cv-tag">EventBridge</span><span class="cv-tag">S3</span>
-            <span class="cv-tag">Glacier</span><span class="cv-tag">EBS</span>
-            <span class="cv-tag">Route 53</span><span class="cv-tag">IAM</span>
-            <span class="cv-tag">CloudTrail</span>
-          </div>
-        </div>
-
-        <div class="cv-skill-group">
-          <div class="cv-skill-label">Windows Server</div>
-          <div class="cv-tags">
-            <span class="cv-tag">AD DS</span><span class="cv-tag">DNS</span>
-            <span class="cv-tag">GPO</span><span class="cv-tag">RDS</span>
-            <span class="cv-tag">IIS</span><span class="cv-tag">File Server</span>
-          </div>
-        </div>
-
-        <div class="cv-skill-group">
-          <div class="cv-skill-label">Monitoramento</div>
-          <div class="cv-tags">
-            <span class="cv-tag">Zabbix</span><span class="cv-tag">Grafana</span>
-            <span class="cv-tag">InfluxDB</span><span class="cv-tag">Telegraf</span>
-            <span class="cv-tag">SNMP</span>
-          </div>
-        </div>
-
-        <div class="cv-skill-group">
-          <div class="cv-skill-label">Automação</div>
-          <div class="cv-tags">
-            <span class="cv-tag">Python</span><span class="cv-tag">PowerShell</span>
-            <span class="cv-tag">WinRM</span><span class="cv-tag">Telegram Bot</span>
-          </div>
-        </div>
-
-        <div class="cv-skill-group">
-          <div class="cv-skill-label">BI e Dados</div>
-          <div class="cv-tags">
-            <span class="cv-tag">Power BI</span><span class="cv-tag">Excel</span>
-            <span class="cv-tag">Firebird SQL</span><span class="cv-tag">ETL</span>
-          </div>
-        </div>
-
-        <div class="cv-skill-group">
-          <div class="cv-skill-label">Redes e Infra</div>
-          <div class="cv-tags">
-            <span class="cv-tag">MikroTik</span><span class="cv-tag">Pritunl VPN</span>
-            <span class="cv-tag">VLANs</span><span class="cv-tag">Linux</span>
-            <span class="cv-tag">Git</span><span class="cv-tag">GLPI</span>
-          </div>
-        </div>
-      </div>
-
-      <hr class="cv-sep">
-
-      <!-- FORMAÇÃO -->
-      <div class="cv-section">
-        <div class="cv-section-title">
-          <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
-          Formação
-        </div>
-
-        <div class="cv-edu-item">
-          <div class="cv-edu-curso">Análise e Des. de Sistemas</div>
-          <div class="cv-edu-inst">UniRios — em andamento</div>
-        </div>
-        <div class="cv-edu-item">
-          <div class="cv-edu-curso">Power BI Avançado</div>
-          <div class="cv-edu-inst">Unigranrio — Duque de Caxias</div>
-        </div>
-        <div class="cv-edu-item">
-          <div class="cv-edu-curso">Técnico em Redes de Computadores</div>
-          <div class="cv-edu-inst">Senac — Rio de Janeiro</div>
-        </div>
-        <div class="cv-edu-item">
-          <div class="cv-edu-curso">TIC</div>
-          <div class="cv-edu-inst">Senai — Rio de Janeiro</div>
-        </div>
-        <div class="cv-edu-item">
-          <div class="cv-edu-curso">Infraestrutura e Office Avançado</div>
-          <div class="cv-edu-inst">Microlins — Rio de Janeiro</div>
-        </div>
-      </div>
-
-      <hr class="cv-sep">
-
-      <!-- IDIOMAS -->
-      <div class="cv-section">
-        <div class="cv-section-title">
-          <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
-          Idiomas
-        </div>
-
-        <div style="margin-bottom:12px">
-          <div class="cv-lang-item">
-            <span class="cv-lang-name">Português</span>
-            <span class="cv-lang-level">Nativo</span>
-          </div>
-          <div class="cv-lang-dots">
-            <div class="cv-lang-dot filled"></div>
-            <div class="cv-lang-dot filled"></div>
-            <div class="cv-lang-dot filled"></div>
-            <div class="cv-lang-dot filled"></div>
-            <div class="cv-lang-dot filled"></div>
-          </div>
-        </div>
-
-        <div>
-          <div class="cv-lang-item">
-            <span class="cv-lang-name">Inglês</span>
-            <span class="cv-lang-level">Técnico / Leitura</span>
-          </div>
-          <div class="cv-lang-dots">
-            <div class="cv-lang-dot filled"></div>
-            <div class="cv-lang-dot filled"></div>
-            <div class="cv-lang-dot filled"></div>
-            <div class="cv-lang-dot"></div>
-            <div class="cv-lang-dot"></div>
-          </div>
         </div>
       </div>
 
@@ -638,11 +556,10 @@
 
   <!-- FOOTER -->
   <div class="cv-footer">
-    <span>Atualizado em Junho/2026 · Rio de Janeiro, RJ</span>
-    <a href="index.html">Ver site interativo completo →</a>
+    <span>Atualizado em Junho/2026</span>
+    <a href="https://deivydgarcez.github.io/curriculo">Ver portfolio interativo completo</a>
   </div>
 
 </div>
-
 </body>
 </html>
