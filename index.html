@@ -755,11 +755,11 @@
           </div>
           <div class="tl-cargo">Líder de Infraestrutura de TI</div>
           <ul>
-            <li>Administro 20+ servidores Windows Server em AWS e LGVHost com Active Directory, DNS, GPO, RDS com RemoteApp e Firebird em produção para clientes das redes Pontual e ByteWave</li>
-            <li>Gerencio infraestrutura AWS com EC2, EBS, S3, Glacier Deep Archive, Route 53, CloudTrail e IAM - 48+ funções Lambda acionadas via EventBridge automatizam operações agendadas por cliente</li>
-            <li>Monitoramento centralizado com Zabbix e Grafana; alertas via Discord e Telegram com erro e causa identificados automaticamente; remediação remota por WinRM e SSH sem necessidade de RDP</li>
-            <li>Administro Firebird 5 em Linux com validação automática de integridade dos backups via S3 e restauração com gbak</li>
-            <li>Dashboards Power BI com 30+ views SQL no Firebird para análise operacional e acompanhamento de indicadores por cliente</li>
+            <li>Projetei e implantei infraestrutura completa para 23 clientes em produção com 270+ usuários simultâneos — Windows Server, AD DS, DNS, GPO, RDS RemoteApp e Firebird em ambiente híbrido AWS EC2 + LGVHost com múltiplas filiais por cliente</li>
+            <li>Arquitetei toda a infraestrutura AWS da empresa: EC2, EBS, S3, Glacier Deep Archive, Route 53, CloudTrail e IAM — incluindo 48+ funções Lambda criadas com EventBridge e agendamentos individuais por cliente, eliminando intervenção manual nas operações rotineiras</li>
+            <li>Desenvolvi stack completo de monitoramento e remediação: Zabbix + Grafana cobrindo 20+ servidores, alertas automáticos no Discord e Telegram com causa já identificada, remediação via WinRM e SSH sem necessidade de RDP</li>
+            <li>Implantei Firebird 5 em Linux com sistema de backup diário para S3 e validação automática de integridade por restauração real via gbak</li>
+            <li>Criei 30+ views SQL analíticas no Firebird integradas ao Power BI para análise operacional e acompanhamento de indicadores por cliente</li>
           </ul>
         </div>
 
@@ -771,10 +771,9 @@
           </div>
           <div class="tl-cargo">Técnico de Suporte</div>
           <ul>
-            <li>Suporte técnico remoto, telefônico e presencial para usuários finais e empresas</li>
-            <li>Administração de servidores Windows Server 2012 em ambiente virtualizado com VMware</li>
-            <li>Manutenção de equipamentos, cabeamento de laboratórios e configuração de redes</li>
-            <li>Homologação de programas administrativos e manutenção de servidores de rede e impressão</li>
+            <li>Realizei suporte técnico remoto, telefônico e presencial para usuários finais e empresas, resolvendo incidentes de hardware, software e redes dentro do SLA de atendimento</li>
+            <li>Implantei e mantive servidores Windows Server 2012 em ambiente virtualizado com VMware, realizei cabeamento, configuração de redes e manutenção de equipamentos</li>
+            <li>Homologuei sistemas administrativos e configurei servidores de impressão e arquivo em rede corporativa</li>
           </ul>
         </div>
 
@@ -789,56 +788,63 @@
           <span class="project-badge badge-infra">Infra</span>
           <div class="project-card-name">ERP via RDS RemoteApp - Multi-Cliente</div>
           <div class="project-card-tech">Windows Server · RDS · RemoteApp · AD DS · GPO · Firebird · AWS EC2</div>
-          <p>Deploy e gestão do ERP Automec via RemoteApp para <span class="project-metric">23 clientes em produção</span>, com pico de <span class="project-metric">270+ usuários simultâneos</span> monitorados via Zabbix. Infraestrutura híbrida AWS EC2 + LGVHost com AD, GPO, File Server e Firebird, suportando múltiplas filiais por cliente.</p>
+          <p>Projetei e implantei infraestrutura para rodar o ERP Automec via RemoteApp para <span class="project-metric">23 clientes em produção</span>, com pico de <span class="project-metric">270+ usuários simultâneos</span>. Ambiente híbrido AWS EC2 + LGVHost com AD, GPO, File Server e Firebird, suportando múltiplas filiais por cliente.</p>
         </div>
 
         <div class="project-card">
           <span class="project-badge badge-cloud">Cloud</span>
           <div class="project-card-name">Automação AWS com Lambda e EventBridge</div>
           <div class="project-card-tech">Python · Lambda · EventBridge · boto3 · S3</div>
-          <p><span class="project-metric">48+ funções Lambda</span> com agendamentos individuais por cliente. Relatório semanal automático com custos em R$ com câmbio do dia, detecção de recursos novos e alertas de anomalias de custo.</p>
+          <p>Criei <span class="project-metric">48+ funções Lambda</span> com agendamentos individuais por cliente via EventBridge. Relatório semanal automático com custos em R$ com câmbio do dia, detecção de recursos novos e alertas de anomalias de custo.</p>
         </div>
 
         <div class="project-card">
           <span class="project-badge badge-devops">DevOps</span>
           <div class="project-card-name">Monitoramento e Remediação Remota</div>
           <div class="project-card-tech">Python · Zabbix · Grafana · WinRM · SSH · Telegram</div>
-          <p>Alertas no Discord e Telegram com erro e causa já identificados. Remediação direta pelo Telegram com confirmação. Deploy simultâneo em <span class="project-metric">20+ máquinas</span> via WinRM sem acesso RDP.</p>
+          <p>Desenvolvi stack completo de monitoramento: alertas no Discord e Telegram com causa já identificada, remediação direta pelo Telegram. Deploy simultâneo em <span class="project-metric">20+ máquinas</span> via WinRM sem acesso RDP.</p>
         </div>
 
         <div class="project-card">
           <span class="project-badge badge-seguranca">Segurança</span>
           <div class="project-card-name">Segurança e Acesso Remoto</div>
           <div class="project-card-tech">Pritunl VPN · PowerShell · WinRM · Windows Firewall</div>
-          <p>VPN corporativa com Pritunl para acesso seguro a toda a infraestrutura. Auditor-RDP: script PowerShell que audita e corrige automaticamente regras de firewall Windows via WinRM, bloqueando IPs não autorizados em todos os servidores.</p>
+          <p>Implantei VPN corporativa com Pritunl para toda a infraestrutura. Criei Auditor-RDP: script PowerShell que audita e corrige automaticamente regras de firewall Windows via WinRM, bloqueando IPs não autorizados em todos os servidores.</p>
         </div>
 
         <div class="project-card">
           <span class="project-badge badge-cloud">Cloud</span>
           <div class="project-card-name">Backup Firebird para AWS S3 + Validação</div>
           <div class="project-card-tech">PowerShell · Inno Setup · S3 · Glacier · Firebird/gbak</div>
-          <p>Backup automatizado de bancos FDB e XMLs fiscais para S3/Glacier com validação por restauração real via gbak. Instalador gráfico compatível com Windows Server 2008, sem dependências externas.</p>
+          <p>Desenvolvi sistema de backup automatizado de bancos FDB e XMLs fiscais para S3/Glacier com validação por restauração real via gbak. Criei instalador gráfico compatível com Windows Server 2008, sem dependências externas.</p>
         </div>
 
         <div class="project-card">
           <span class="project-badge badge-automacao">Automação</span>
           <div class="project-card-name">Relatórios Automáticos de Infraestrutura</div>
           <div class="project-card-tech">Python · AWS Cost Explorer · Lambda · Telegram · Email</div>
-          <p>Relatório semanal com custos AWS em R$ com câmbio do dia e alertas de anomalias. Relatório mensal com status de servidores, swap, remediações e backups - entregue automaticamente via Telegram e email, sem intervenção manual.</p>
+          <p>Criei relatório semanal com custos AWS em R$ com câmbio do dia e alertas de anomalias. Relatório mensal com status de servidores, swap, remediações e backups — entregue automaticamente via Telegram e email, sem intervenção manual.</p>
         </div>
 
         <div class="project-card">
           <span class="project-badge badge-analytics">Analytics</span>
           <div class="project-card-name">BI Corporativo - Power BI e Firebird</div>
           <div class="project-card-tech">Power BI · Excel Avançado · Firebird SQL · ETL</div>
-          <p><span class="project-metric">30+ views SQL</span> cobrindo vendas, estoque, margem e financeiro integradas ao Power BI. Planilhas Excel para análise operacional e KPIs por cliente.</p>
+          <p>Desenvolvi <span class="project-metric">30+ views SQL</span> cobrindo vendas, estoque, margem e financeiro, integradas ao Power BI. Criei planilhas Excel para análise operacional e KPIs por cliente.</p>
+        </div>
+
+        <div class="project-card">
+          <span class="project-badge badge-automacao">Dev</span>
+          <div class="project-card-name">Invec — App Android de Inventário</div>
+          <div class="project-card-tech">Python · FastAPI · Android Kotlin · Firebird · JWT · GitHub Actions</div>
+          <p>Desenvolvi do zero app mobile + backend para inventário de estoque integrado ao ERP Automec. Scanner de código de barras, modo offline completo com sync automático, consolidação com controle de supervisor e CI/CD via GitHub Actions.</p>
         </div>
 
         <div class="project-card">
           <span class="project-badge badge-redes">Redes</span>
           <div class="project-card-name">Observabilidade MikroTik</div>
           <div class="project-card-tech">Grafana · InfluxDB · Telegraf · SNMP</div>
-          <p>Métricas de banda e disponibilidade de links em tempo real com alertas automáticos de queda e histórico de incidentes por roteador e link.</p>
+          <p>Implantei stack de observabilidade para monitorar banda e disponibilidade de links em tempo real, com alertas automáticos de queda e histórico de incidentes por roteador.</p>
         </div>
 
       </div>
@@ -858,7 +864,8 @@
           <span class="tag">EventBridge</span><span class="tag">S3</span>
           <span class="tag">Glacier</span><span class="tag">EBS</span>
           <span class="tag">Route 53</span><span class="tag">CloudTrail</span>
-          <span class="tag">IAM</span><span class="tag">Cost Explorer</span>
+          <span class="tag">IAM</span><span class="tag">VPC</span>
+          <span class="tag">CloudWatch</span><span class="tag">Cost Explorer</span>
         </div>
       </div>
 
@@ -868,6 +875,7 @@
           <span class="tag">AD DS</span><span class="tag">DNS</span>
           <span class="tag">GPO</span><span class="tag">RDS</span>
           <span class="tag">IIS</span><span class="tag">File Server</span>
+          <span class="tag">WSUS</span><span class="tag">Print Server</span>
         </div>
       </div>
 
@@ -876,29 +884,39 @@
         <div class="tags">
           <span class="tag">Zabbix</span><span class="tag">Grafana</span>
           <span class="tag">InfluxDB</span><span class="tag">Telegraf</span>
-          <span class="tag">SNMP</span>
+          <span class="tag">Loki</span><span class="tag">SNMP</span>
         </div>
       </div>
 
       <div class="skill-group fade-in" style="transition-delay:.18s">
+        <div class="skill-label">Desenvolvimento</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">FastAPI</span>
+          <span class="tag">Kotlin</span><span class="tag">Android</span>
+          <span class="tag">REST API</span><span class="tag">JWT</span>
+          <span class="tag">GitHub Actions</span><span class="tag">CI/CD</span>
+        </div>
+      </div>
+
+      <div class="skill-group fade-in" style="transition-delay:.24s">
         <div class="skill-label">Automação</div>
         <div class="tags">
-          <span class="tag">Python</span><span class="tag">PowerShell</span>
+          <span class="tag">PowerShell</span><span class="tag">Bash</span>
           <span class="tag">WinRM</span><span class="tag">Telegram Bot</span>
           <span class="tag">Inno Setup</span>
         </div>
       </div>
 
-      <div class="skill-group fade-in" style="transition-delay:.24s">
+      <div class="skill-group fade-in" style="transition-delay:.30s">
         <div class="skill-label">BI e Dados</div>
         <div class="tags">
           <span class="tag">Power BI</span><span class="tag">Excel Avançado</span>
-          <span class="tag">Firebird SQL</span><span class="tag">ETL</span>
-          <span class="tag">GLPI</span>
+          <span class="tag">Firebird SQL</span><span class="tag">SQLite</span>
+          <span class="tag">ETL</span><span class="tag">GLPI</span>
         </div>
       </div>
 
-      <div class="skill-group fade-in" style="transition-delay:.30s">
+      <div class="skill-group fade-in" style="transition-delay:.36s">
         <div class="skill-label">Redes e Infra</div>
         <div class="tags">
           <span class="tag">MikroTik</span><span class="tag">VPN Pritunl</span>

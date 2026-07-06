@@ -372,7 +372,7 @@
 
   <!-- PROFILE STRIP -->
   <div class="cv-profile">
-    Profissional de infraestrutura com mais de uma década de experiência em servidores Windows, Linux e cloud AWS. Desde 2017 liderando TI para redes varejistas com múltiplas filiais — automação em Python e PowerShell, monitoramento centralizado, dashboards Power BI e operações com mínima intervenção manual.
+    Profissional de infraestrutura e desenvolvimento que projeta, constrói e opera ambientes completos desde 2017. Arquitetei toda a infraestrutura AWS, desenvolvi stack de monitoramento com remediação automática, criei dashboards Power BI e desenvolvi aplicativo mobile de inventário integrado ao ERP — tudo em produção para redes varejistas com múltiplas filiais.
   </div>
 
   <!-- BODY -->
@@ -389,27 +389,32 @@
 
         <div class="skill-group">
           <div class="skill-label">Cloud AWS</div>
-          <div class="skill-text">EC2, Lambda, EventBridge, S3, Glacier, EBS, Route 53, IAM, CloudTrail, Cost Explorer</div>
+          <div class="skill-text">EC2, Lambda, EventBridge, S3, Glacier, EBS, VPC, Route 53, IAM, CloudWatch, CloudTrail, Cost Explorer</div>
         </div>
 
         <div class="skill-group">
           <div class="skill-label">Windows Server</div>
-          <div class="skill-text">AD DS, DNS, GPO, RDS, RemoteApp, IIS, File Server</div>
+          <div class="skill-text">AD DS, DNS, GPO, RDS, RemoteApp, IIS, File Server, WSUS, Print Server</div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Desenvolvimento</div>
+          <div class="skill-text">Python, FastAPI, Kotlin, Android, REST API, JWT, GitHub Actions, CI/CD</div>
         </div>
 
         <div class="skill-group">
           <div class="skill-label">Monitoramento</div>
-          <div class="skill-text">Zabbix, Grafana, InfluxDB, Telegraf, SNMP</div>
+          <div class="skill-text">Zabbix, Grafana, InfluxDB, Telegraf, Loki, SNMP</div>
         </div>
 
         <div class="skill-group">
           <div class="skill-label">Automação</div>
-          <div class="skill-text">Python, PowerShell, WinRM, Telegram Bot, Inno Setup</div>
+          <div class="skill-text">PowerShell, Bash, WinRM, Telegram Bot, Inno Setup</div>
         </div>
 
         <div class="skill-group">
           <div class="skill-label">BI e Dados</div>
-          <div class="skill-text">Power BI, Excel Avançado, Firebird SQL, ETL, GLPI</div>
+          <div class="skill-text">Power BI, Excel Avançado, Firebird SQL, SQLite, ETL, GLPI</div>
         </div>
 
         <div class="skill-group">
@@ -491,10 +496,10 @@
           </div>
           <div class="exp-role">Líder de Infraestrutura de TI</div>
           <ul>
-            <li>Administro 20+ servidores Windows Server em AWS e LGVHost com AD DS, DNS, GPO, RDS RemoteApp e Firebird para 23 clientes em produção com 270+ usuários simultâneos</li>
-            <li>Gerencio infraestrutura AWS (EC2, S3/Glacier, Lambda, IAM, Route 53) com 48+ funções Lambda automatizando operações agendadas individualmente por cliente via EventBridge</li>
-            <li>Monitoramento centralizado Zabbix + Grafana de 20+ servidores com alertas automáticos no Discord e Telegram — tempo médio de resposta a incidentes reduzido com remediação remota via WinRM e SSH, eliminando necessidade de RDP</li>
-            <li>Dashboards Power BI com 30+ views SQL no Firebird e rotina de backup diário para S3 com validação de integridade por restauração real via gbak</li>
+            <li>Projetei e implantei infraestrutura para 23 clientes em produção com 270+ usuários simultâneos — Windows Server, AD DS, DNS, GPO, RDS RemoteApp e Firebird em ambiente híbrido AWS EC2 + LGVHost com múltiplas filiais por cliente</li>
+            <li>Arquitetei toda a infraestrutura AWS da empresa: EC2, S3/Glacier, Lambda, IAM, Route 53 — incluindo 48+ funções Lambda com EventBridge criadas com agendamentos individuais por cliente, eliminando intervenção manual nas operações rotineiras</li>
+            <li>Desenvolvi stack completo de monitoramento e remediação: Zabbix + Grafana cobrindo 20+ servidores, alertas automáticos no Discord e Telegram com causa já identificada, remediação via WinRM e SSH sem necessidade de RDP</li>
+            <li>Criei 30+ views SQL analíticas no Firebird integradas ao Power BI e sistema de backup diário para S3 com validação de integridade por restauração real via gbak</li>
           </ul>
         </div>
 
@@ -507,8 +512,8 @@
           </div>
           <div class="exp-role">Técnico de Suporte</div>
           <ul>
-            <li>Prestei suporte técnico remoto, telefônico e presencial para usuários finais e empresas, resolvendo incidentes de hardware, software e redes com SLA de atendimento</li>
-            <li>Administração de servidores Windows Server 2012 em ambiente virtualizado com VMware, manutenção de equipamentos e configuração de redes corporativas</li>
+            <li>Realizei suporte técnico remoto, telefônico e presencial para usuários finais e empresas, resolvendo incidentes de hardware, software e redes dentro do SLA de atendimento</li>
+            <li>Implantei e mantive servidores Windows Server 2012 em ambiente virtualizado com VMware, realizei cabeamento, configuração de redes e manutenção de equipamentos</li>
           </ul>
         </div>
       </div>
@@ -550,6 +555,13 @@
             <div class="proj-name">Segurança e Acesso Remoto</div>
             <div class="proj-tech">Pritunl VPN · PowerShell · WinRM · Firewall</div>
             <p>VPN corporativa com Pritunl. Auditor-RDP: corrige automaticamente regras de firewall Windows em todos os servidores via WinRM.</p>
+          </div>
+
+          <div class="proj-card">
+            <span class="proj-badge badge-automacao">Dev</span>
+            <div class="proj-name">Invec — App Android de Inventário</div>
+            <div class="proj-tech">Python · FastAPI · Android Kotlin · Firebird · JWT</div>
+            <p>Desenvolvi do zero app mobile + backend para inventário integrado ao ERP Automec. Scanner de código de barras, modo offline completo, sync automático e consolidação com controle de supervisor.</p>
           </div>
 
         </div>
