@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deivyd Garcez - CV (versão ATS)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: Arial, Helvetica, "Segoe UI", sans-serif;
+    color: #1a1a1a;
+    background: #e8e8e8;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  /* SCREEN NAV */
+  .screen-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #1e3a8a;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    z-index: 100;
+  }
+
+  .screen-nav span { color: #fff; font-weight: bold; font-size: 14px; }
+  .screen-nav a { color: #bfdbfe; text-decoration: none; font-size: 13px; margin-right: 16px; }
+  .screen-nav a:hover { color: #fff; }
+
+  .btn-print {
+    background: rgba(255,255,255,.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,.3);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .btn-print:hover { background: rgba(255,255,255,.25); }
+
+  .page {
+    max-width: 760px;
+    margin: 64px auto 40px;
+    background: #fff;
+    padding: 48px 56px;
+    box-shadow: 0 2px 24px rgba(0,0,0,.15);
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .title {
+    font-size: 14px;
+    color: #333;
+    margin-top: 4px;
+  }
+
+  .contact-line {
+    margin-top: 10px;
+    font-size: 13.5px;
+    color: #333;
+  }
+
+  .contact-line a { color: #1e3a8a; text-decoration: none; }
+
+  h2 {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 4px;
+    margin-top: 28px;
+    margin-bottom: 12px;
+  }
+
+  h1 + .title + .contact-line { margin-bottom: 4px; }
+
+  p.summary {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .job { margin-bottom: 18px; }
+  .job:last-child { margin-bottom: 0; }
+
+  h3 {
+    font-size: 14.5px;
+    font-weight: bold;
+  }
+
+  .job-meta {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 6px;
+  }
+
+  .job ul, .proj-list ul {
+    margin-left: 20px;
+  }
+
+  .job li, .proj-list li {
+    font-size: 13.5px;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+
+  .proj-item { margin-bottom: 10px; }
+  .proj-item:last-child { margin-bottom: 0; }
+  .proj-item strong { font-size: 14px; }
+  .proj-item .tech { font-size: 12.5px; color: #444; display: block; margin: 2px 0 4px; }
+  .proj-item p { font-size: 13.5px; }
+
+  .skill-row { margin-bottom: 8px; font-size: 13.5px; }
+  .skill-row strong { display: inline; }
+
+  .edu-row { margin-bottom: 8px; font-size: 13.5px; }
+  .edu-row strong { display: block; font-size: 14px; }
+
+  footer {
+    margin-top: 28px;
+    font-size: 12px;
+    color: #666;
+  }
+
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .screen-nav { display: none !important; }
+    .page { margin: 0; max-width: 100%; padding: 0; box-shadow: none; }
+  }
+
+  @media (max-width: 640px) {
+    .page { padding: 24px 20px; margin-top: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="screen-nav">
+  <span>Currículo - Deivyd Garcez (versão ATS)</span>
+  <div>
+    <a href="index.html">← Site interativo</a>
+    <a href="cv.html">Ver versão visual</a>
+    <button class="btn-print" onclick="window.print()">Salvar PDF</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <h1>Deivyd Garcez</h1>
+  <div class="title">Analista de Infraestrutura Sênior — Infraestrutura, DevOps e Desenvolvimento de Software</div>
+  <div class="contact-line">
+    (21) 99486-5377 &nbsp;|&nbsp;
+    <a href="mailto:garcezdeivyd@gmail.com">garcezdeivyd@gmail.com</a> &nbsp;|&nbsp;
+    <a href="https://linkedin.com/in/deivyd-garcez-44788b121">linkedin.com/in/deivyd-garcez</a> &nbsp;|&nbsp;
+    <a href="https://github.com/deivydgarcez">github.com/deivydgarcez</a> &nbsp;|&nbsp;
+    Rio de Janeiro, RJ
+  </div>
+
+  <h2>Resumo Profissional</h2>
+  <p class="summary">
+    Profissional de infraestrutura, DevOps e desenvolvimento de software com atuação desde 2014. Arquitetei infraestrutura AWS (EC2, Lambda, S3, IAM), implementei stack de monitoramento com remediação automática, desenvolvi aplicativo móvel Android com backend em Python e opero ambientes Linux e Windows Server com 34 clientes em produção. Experiência prática com Docker, CI/CD e automação via PowerShell e Bash.
+  </p>
+
+  <h2>Experiência Profissional</h2>
+
+  <div class="job">
+    <h3>Pontual Tecnologia — Analista de Infraestrutura Sênior</h3>
+    <div class="job-meta">Dezembro de 2017 a Atual</div>
+    <ul>
+      <li>Projetei e implantei infraestrutura para 34 clientes em produção com 270+ usuários simultâneos: 23 em ambiente híbrido AWS EC2 + LGVHost e 11 on-premises com 100+ servidores Linux e Windows Server distribuídos por filiais, todos com AD DS, DNS, GPO, RDS RemoteApp e Firebird</li>
+      <li>Arquitetei toda a infraestrutura AWS da empresa: EC2, EBS, S3, Glacier Deep Archive, Route 53, CloudTrail e IAM, incluindo 48+ funções Lambda com EventBridge criadas com agendamentos individuais por cliente, eliminando intervenção manual nas operações rotineiras</li>
+      <li>Desenvolvi stack completo de monitoramento e remediação: Zabbix e Grafana cobrindo 20+ servidores, alertas automáticos no Discord e Telegram com causa já identificada, remediação via WinRM e SSH sem necessidade de RDP</li>
+      <li>Criei 30+ views SQL analíticas no Firebird integradas ao Power BI e sistema de backup diário para S3 com validação de integridade por restauração real via gbak</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3>Consultor de TI Autônomo — Infraestrutura, Redes e Servidores</h3>
+    <div class="job-meta">Abril de 2016 a Atual</div>
+    <ul>
+      <li>Levantei a necessidade de cada cliente e desenhei infraestrutura sob medida em 6 clientes (11 servidores): Windows Server com AD DS, GPO e File Server em VM sobre VirtualBox/QEMU, host Linux dedicado e rede MikroTik segmentada</li>
+      <li>Mantenho essas infraestruturas desde 2016 com baixa necessidade de intervenção graças à documentação e automação implementadas, com suporte remoto sob demanda</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3>Infocorp — Técnico de Suporte</h3>
+    <div class="job-meta">Maio de 2014 a Março de 2016</div>
+    <ul>
+      <li>Suporte técnico remoto e presencial para empresas, implantação de Windows Server 2012 com VMware, configuração de redes e infraestrutura dentro de SLA</li>
+    </ul>
+  </div>
+
+  <h2>Projetos em Destaque</h2>
+  <div class="proj-list">
+    <div class="proj-item">
+      <strong>ERP via RDS RemoteApp: Multi-Cliente</strong>
+      <span class="tech">Windows Server, RDS, RemoteApp, AD DS, GPO, Firebird, AWS EC2</span>
+      <p>Infraestrutura para rodar o ERP Automec via RemoteApp para 34 clientes em produção, pico de 270+ usuários simultâneos, ambiente híbrido AWS EC2 + LGVHost com múltiplas filiais por cliente.</p>
+    </div>
+    <div class="proj-item">
+      <strong>Automação AWS com Lambda e EventBridge</strong>
+      <span class="tech">Python, Lambda, EventBridge, boto3, S3</span>
+      <p>48+ funções Lambda com agendamentos individuais por cliente. Relatório semanal automático com custos em R$ e alertas de anomalias.</p>
+    </div>
+    <div class="proj-item">
+      <strong>Monitoramento e Remediação Remota</strong>
+      <span class="tech">Python, Zabbix, Grafana, WinRM, SSH, Telegram</span>
+      <p>Stack completo de monitoramento com alertas de causa identificada e remediação direta via Telegram, implantado em 20+ máquinas via WinRM sem acesso RDP.</p>
+    </div>
+    <div class="proj-item">
+      <strong>Segurança e Acesso Remoto</strong>
+      <span class="tech">Pritunl VPN, PowerShell, WinRM, Windows Firewall</span>
+      <p>VPN corporativa com Pritunl. Script Auditor-RDP que audita e corrige automaticamente regras de firewall Windows via WinRM em todos os servidores.</p>
+    </div>
+    <div class="proj-item">
+      <strong>Invec: App Android de Inventário</strong>
+      <span class="tech">Python, FastAPI, Android Kotlin, Firebird, JWT, GitHub Actions</span>
+      <p>Aplicativo mobile e backend desenvolvidos do zero para inventário de estoque integrado ao ERP Automec, com scanner de código de barras, modo offline e CI/CD.</p>
+    </div>
+    <div class="proj-item">
+      <strong>Assistente Jurídico com IA</strong>
+      <span class="tech">Next.js, React, PostgreSQL, Groq, LLaMA 3.3 70B, Docker</span>
+      <p>Plataforma on-premise para escritórios de advocacia com IA generativa: resumo de processos, análise preditiva de êxito e geração de minutas.</p>
+    </div>
+  </div>
+
+  <h2>Habilidades Técnicas</h2>
+  <div class="skill-row"><strong>Cloud AWS:</strong> EC2, Lambda, EventBridge, S3, Glacier, EBS, VPC, Route 53, IAM, CloudWatch, CloudTrail, Cost Explorer</div>
+  <div class="skill-row"><strong>Windows Server:</strong> AD DS, DNS, GPO, RDS, RemoteApp, IIS, File Server, WSUS, Print Server</div>
+  <div class="skill-row"><strong>Desenvolvimento:</strong> Python, FastAPI, Kotlin, Android, REST API, JWT, GitHub Actions, CI/CD, Docker</div>
+  <div class="skill-row"><strong>Monitoramento:</strong> Zabbix, Grafana, InfluxDB, Telegraf, Loki, SNMP</div>
+  <div class="skill-row"><strong>Automação:</strong> PowerShell, Bash, WinRM, Telegram Bot, Inno Setup</div>
+  <div class="skill-row"><strong>BI e Dados:</strong> Power BI, Excel Avançado, Firebird SQL, SQLite, ETL, GLPI</div>
+  <div class="skill-row"><strong>Redes e Infraestrutura:</strong> MikroTik, Pritunl VPN, VLANs, Firewall, Linux, Git</div>
+
+  <h2>Formação Acadêmica</h2>
+  <div class="edu-row">
+    <strong>Análise e Desenvolvimento de Sistemas</strong>
+    UniRios — em andamento
+  </div>
+  <div class="edu-row">
+    <strong>Montagem, Manutenção e Redes</strong>
+    Senac, Rio de Janeiro
+  </div>
+
+  <h2>Certificações</h2>
+  <div class="edu-row">
+    <strong>Power BI Avançado</strong>
+    Unigranrio
+  </div>
+  <div class="edu-row">
+    <strong>DevOps Essentials</strong>
+    4Linux
+  </div>
+  <div class="edu-row">
+    <strong>Containers Fundamentals</strong>
+    4Linux, Docker
+  </div>
+  <div class="edu-row">
+    <strong>Cloud Fundamentals</strong>
+    4Linux
+  </div>
+
+  <h2>Idiomas</h2>
+  <div class="edu-row">Português — Nativo</div>
+  <div class="edu-row">Inglês — Técnico</div>
+
+  <footer>
+    Atualizado em Julho/2026 · Versão completa e interativa em <a href="https://deivydgarcez.github.io/curriculo">deivydgarcez.github.io/curriculo</a>
+  </footer>
+
+</div>
+</body>
+</html>
