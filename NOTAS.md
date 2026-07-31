@@ -17,13 +17,39 @@
 - Profile strip reescrito para ATS (keywords em prosa)
 - `estudos/README.md` criado com roteiro de Kubernetes e Terraform
 
-## Pendente para amanhã
+## Pendente
 
 - [ ] Testar PDF com a nova experiência autônoma (verificar se ainda é 1 página)
 - [ ] Substituir "Firebird" nos bullets de experiência por "SQL" onde for genérico
 - [ ] Mover "Power BI Avançado (Unigranrio)" de Formação para Certificações
 - [ ] Revisar index.html no site (verificar se está tudo alinhado com cv.html)
-- [ ] LinkedIn — atualizar perfil com as mesmas informações
+- [ ] **Melhorar LinkedIn** — pendência ativa (31/07/2026)
+
+## Decisões tomadas
+
+### Certificações no CV vs LinkedIn (31/07/2026)
+
+**Regra definida:** cursos de conclusão de plataforma (Anthropic Academy, IBM SkillsBuild, etc.) vão no **LinkedIn**, não no CV.
+
+**Motivo:** a seção Certificações do CV deve ter apenas provas formais com entidade reconhecida. Misturar com cursos de conclusão dilui o peso da seção. O projeto Assistente Jurídico com IA já demonstra capacidade real com LLMs — um certificado de curso não agrega nada além disso.
+
+**Meta para a seção Certificações do CV:** substituir as 4Linux por:
+1. ITIL 4 Foundation — múltipla escolha pura, PeopleCert, ~R$ 900
+2. AWS Cloud Practitioner — múltipla escolha, Pearson VUE, ~R$ 600
+3. AWS Solutions Architect Associate — longo prazo, maior peso global
+
+### Anthropic Academy — cursos relevantes para o perfil dev (31/07/2026)
+
+Dos ~20 cursos disponíveis, fazer apenas:
+- ✅ Claude 101 — concluído
+- ✅ Claude Code 101 — concluído
+- ✅ Claude Platform 101 — concluído
+- [ ] Building with the Claude API
+- [ ] AI Fluency for Builders
+- [ ] Claude Code in Action
+- [ ] Introduction to Model Context Protocol (opcional)
+
+Ignorar: cursos para educadores, estudantes, ONGs, pequenas empresas — fora do perfil.
 
 ## Gaps conhecidos (para entrevista)
 

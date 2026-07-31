@@ -118,6 +118,32 @@ CloudWatch básico não conta. Mercado quer correlation ID, dashboards, alertas.
 
 ## Prioridade 3 — Certificação (valida tudo e abre faixa salarial)
 
+### ITIL 4 Foundation *(entrada recomendada — múltipla escolha pura)*
+Reconhecida globalmente para profissionais de infraestrutura e gestão de TI. Complementa a experiência da Pontual.
+
+| Recurso | Tipo | Custo |
+|---|---|---|
+| [Simulados gratuitos — Axelos](https://www.axelos.com/certifications/itil-service-management/itil-4-foundation) | Simulado oficial | Grátis |
+| [ITIL 4 Foundation — YouTube PT-BR](https://www.youtube.com/results?search_query=itil+4+foundation+portugues) | Vídeo PT-BR | Grátis |
+| [Prova via PeopleCert (online ou presencial)](https://www.peoplecert.org/) | 40 questões MC, 60 min | ~R$ 900 |
+
+**Formato:** 40 questões de múltipla escolha pura. Online com proctoring ou presencial em centro credenciado.
+
+---
+
+### AWS Cloud Practitioner — CLF-C02 *(stepping stone para SAA)*
+Valida o uso prático da AWS que você já faz. Pré-requisito natural antes do Solutions Architect.
+
+| Recurso | Tipo | Custo |
+|---|---|---|
+| [AWS Cloud Practitioner Essentials (Skill Builder)](https://skillbuilder.aws/) | Curso oficial | Grátis |
+| [Simulados — Tutorials Dojo](https://tutorialsdojo.com/) | Simulados | ~US$15 |
+| [Prova via Pearson VUE (online ou presencial)](https://home.pearsonvue.com/aws) | MC + múltipla resposta | ~R$ 600 (~US$100) |
+
+**Formato:** múltipla escolha + múltipla resposta. Online com proctoring ou presencial.
+
+---
+
 ### AWS Solutions Architect Associate
 
 Valida o que você já faz na prática e preenche os gaps de VPC, RDS, ALB, Auto Scaling.
@@ -142,12 +168,14 @@ Valida o que você já faz na prática e preenche os gaps de VPC, RDS, ALB, Auto
 ## Ordem sugerida de execução
 
 ```
-Mês 1-2   → Docker + Linux CLI  (resolve o gap mais visível em entrevistas)
-Mês 2-3   → PostgreSQL          (dominar queries, índices, explain)
-Mês 3-4   → CI/CD completo      (pipeline de deploy real no EC2 Linux)
-Mês 4-5   → Terraform           (IaC da infra que já existe na AWS)
-Mês 5-6   → AWS SAA-C03         (estudo + simulados + prova)
-Paralelo  → Git avançado        (aplicar em todo commit do inventario-app)
+Mês 1     → ITIL 4 Foundation       (1-2 semanas de estudo, prova MC pura — peso imediato no CV)
+Mês 1-2   → Docker + Linux CLI      (resolve o gap mais visível em entrevistas)
+Mês 2-3   → PostgreSQL              (dominar queries, índices, explain)
+Mês 3     → AWS Cloud Practitioner  (stepping stone — aproveita conhecimento AWS existente)
+Mês 3-4   → CI/CD completo          (pipeline de deploy real no EC2 Linux)
+Mês 4-5   → Terraform               (IaC da infra que já existe na AWS)
+Mês 5-6   → AWS SAA-C03             (estudo + simulados + prova)
+Paralelo  → Git avançado            (aplicar em todo commit do inventario-app)
 ```
 
 ---

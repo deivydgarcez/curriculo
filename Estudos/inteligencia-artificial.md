@@ -13,12 +13,36 @@ Nenhum outro lugar ensina Claude melhor do que eles — e o certificado tem peso
 
 | Recurso | Tipo | Custo |
 |---|---|---|
-| [Claude 101](https://anthropic.com/learn) | Curso base — o que é Claude e como usar | Grátis |
-| [Claude Code 101](https://anthropic.com/learn) | Para desenvolvedores — uso prático | Grátis |
-| [Build with Claude](https://anthropic.com/learn) | Aplicações reais com API | Grátis |
-| [AI Fluency for Builders](https://anthropic.com/learn) | IA aplicada ao trabalho de dev | Grátis |
+| [Claude 101](https://anthropic.com/learn) | Curso base — o que é Claude e como usar | Grátis | ✅ Certificado obtido |
+| [Claude Code 101](https://anthropic.com/learn) | Para desenvolvedores — uso prático | Grátis | ✅ Certificado obtido |
+| [Build with Claude](https://anthropic.com/learn) | Aplicações reais com API | Grátis | |
+| [AI Fluency for Builders](https://anthropic.com/learn) | IA aplicada ao trabalho de dev | Grátis | |
 
 **Meta prática:** completar os 4 cursos acima e emitir os certificados para colocar no LinkedIn.
+
+---
+
+## Prioridade 1b — Grátis, múltipla escolha online (certificado rápido)
+
+### IBM AI Fundamentals
+Badge digital da IBM via Credly — aparece no LinkedIn, reconhecido por empresas médias/grandes.
+
+| Recurso | Tipo | Custo |
+|---|---|---|
+| [IBM SkillsBuild — AI Fundamentals](https://skillsbuild.org/) | Curso + prova de múltipla escolha | Grátis |
+
+**Formato da prova:** múltipla escolha online, sem proctoring pesado, badge Credly ao passar.
+
+---
+
+### Microsoft Career Essentials in Generative AI
+Badge da Microsoft direto no LinkedIn.
+
+| Recurso | Tipo | Custo |
+|---|---|---|
+| [Microsoft + LinkedIn Learning — Generative AI](https://www.linkedin.com/learning/) | Assessments de múltipla escolha | Grátis |
+
+**Formato da prova:** assessments de múltipla escolha integrados ao LinkedIn Learning.
 
 ---
 
